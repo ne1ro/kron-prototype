@@ -1,0 +1,27 @@
+KRON
+====
+Date and time-oriented social network
+-------------------------------------
+
+> You may delay, but time will not, and lost time is never found again.
+>
+> Benjamin Franklin
+
+Here is not yet another social network or time organization. Kron is combination of these two. 
+
+### Some features : 
+* Events
+* Reminds
+* Diaries
+* Schedules
+* Timeline and calendar
+* Easy privacy policy
+* Following
+* Groups
+* Tags
+
+And here is the distinctive feature : *it absolutely realtime*.
+You dont need to reload browser anymore : everything what of you typing, searching, or waiting will always update in real time.
+
+
+Created by Aleksey 'neiro' Kuznetsov 
