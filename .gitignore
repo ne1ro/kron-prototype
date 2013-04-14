@@ -11,7 +11,7 @@
 /db/*.sqlite3
 
 /config/mongoid.yml
-
+Gemfile.lock
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
