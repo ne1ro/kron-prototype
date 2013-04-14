@@ -54,6 +54,9 @@ GEM
       multi_json (~> 1.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    formtastic-bootstrap (2.0.0)
+      formtastic (~> 2.2)
+      formtastic-bootstrap
     fssm (0.2.10)
     hike (1.2.2)
     i18n (0.6.1)
@@ -139,7 +142,7 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.1.0)
   coffee-rails (~> 3.2.1)
   compass-rails
-  formtastic
+  formtastic-bootstrap
   jquery-rails
   mongoid
   rails (= 3.2.13)

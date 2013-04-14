@@ -24,7 +24,7 @@ gem 'rainbows'
 gem "angular-rails"
 gem "mongoid"
 gem 'bootstrap-sass', '~> 2.3.1.0'
-gem 'formtastic'
+gem 'formtastic-bootstrap'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
