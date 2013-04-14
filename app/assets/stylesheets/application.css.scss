@@ -1,0 +1,13 @@
+@import "bootstrap";
+
+html, body {
+  font-family: Ubuntu, Helvetica, Trebuchet MS, sans-serif;
+}
+
+#timer {
+  position: absolute;
+  text-align: right;
+  display: block;
+  font-family: Ubuntu Mono, sans-serif;
+  color: #fff!important;
+}

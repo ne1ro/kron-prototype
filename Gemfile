@@ -19,8 +19,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'guard-livereload'
+end
+
 gem 'jquery-rails'
-gem 'rainbows'
+gem 'unicorn'
 gem "angular-rails"
 gem "mongoid"
 gem 'bootstrap-sass', '~> 2.3.1.0'
