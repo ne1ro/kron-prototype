@@ -8,7 +8,9 @@
 </head>
 <body>
     
-    <nav>
+  <div class="page">
+    
+     <nav>
       <a href="users/ne1ro" class="avatar"><%= image_tag('ne1ro.png') %></a>
       <a href="notices">Notices</i></a>
       <a href="events">Events</i></a>
@@ -19,18 +21,37 @@
         Apr 19 16:24
       </p>
     </nav>
- 
-  <div class="page">
-    
+
     <div class="content">
       <%= yield %>
     </div>
-    
-
-    <div id="footer">
-      
-    </div>
   
+  </div>
+  <div id="footer">
+    <div class="column">
+      <%= image_tag('logo.png', :class => 'logo') %>
+      <p class="uppercase">kron network</p>
+      <p>Created by Aleksey Kuznetsov</p>
+      <p>All rights reserved © 2013</p>
+    </div>
+    <div class="column">
+      <ul>
+        <li><a href="notices">My notifications</a></li>
+        <li><a href="events">My events</a></li>
+        <li><a href="diaries">My diaries</a></li>
+        <li><a href="groups">My groups</a></li>
+        <li><a href="schedules">My schedules</a></li>
+      </ul>
+    </div>
+    <div class="column">
+      <ul>
+        <li><a href="users/ne1ro">My account</a></li>
+        <li><a href="users/ne1ro">Log out</a></li>
+        <li><a href="users/ne1ro">About Kron</a></li>
+        <li><a href="users/ne1ro">Kron Tour</a></li>
+        <li><a href="users/ne1ro">Time</a></li>
+      </ul>
+    </div>    
   </div>
 
 </body>
