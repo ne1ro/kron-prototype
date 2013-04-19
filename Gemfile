@@ -12,10 +12,8 @@ gem 'rails', '3.2.13'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass', '~> 2.3.1.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-  gem 'compass-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -28,6 +26,9 @@ gem 'unicorn'
 gem "angular-rails"
 gem "mongoid"
 gem 'formtastic'
+gem 'less-rails'
+gem 'therubyracer'
+gem "font-awesome-rails"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
