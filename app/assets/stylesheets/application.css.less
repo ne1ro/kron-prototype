@@ -12,7 +12,10 @@
 @green : #006400;
 @warm : #CEC7BF;
 
+// Fonts
 @ubuntu : Ubuntu, Helvetica, Trebuchet MS, Liberation Sans, sans-serif;
+@mono : Ubuntu Mono, Droid Sans Mono, Menlo, Monaco, Consolas, Terminus, sans-serif;
+
 
 html {
   padding: 0;
@@ -37,22 +40,27 @@ h1 {
   font-size : 2em;
 }
 
-#sidebar {
+nav {
   background: @brown;
   position: fixed;
-  width: 4em;
-  border-right: 0.25em solid @orange;
-  height: 100%;
+  height: 3em;
+  border-bottom: 0.25em solid @orange;
+  width: 100%;
   left: 0;
   top: 0;
   z-index: 100;
+  margin: 0 auto;
 }
 
 .page {
   width: 100%;
-  position: relative;
+  position: absolute;
   min-height: 100%;
   background: @warm;
+}
+
+.content {
+  margin-top : 3.5em;
 }
 
 #timeside {
@@ -70,19 +78,48 @@ h1 {
   float: left;
 }
 
+nav a{
+  text-decoration: none;
+  color: @white;
+  text-transform: uppercase;
+  display: block;
+  float: left;
+  font-weight: bold;
+  margin: 0.5em 0.5em 0 0.5em;
+  font-size: 1.5em;
+  height: 1.5em;
+  border-bottom : 0.2em solid @orange;
+}
+
+nav a.first {
+  margin-left: 2.5em;
+}
+
+nav a:hover{
+  color: @orange;
+  border-bottom: 0.2em solid @green;
+  -webkit-transition : all 0.5s ease;
+  -moz-transition : all 0.5s ease;
+  -o-transition : all 0.5s ease;
+  -ms-transition : all 0.5s ease;
+  transition : all 0.5s ease;
+}
+
 .avatar {
   border-radius: 50%;
-  border : 0.25em solid @white;
-  margin: 0.25em;
+  border : 0.25em solid @green;
+  margin: 0em;
   display: block;
-  width: 3em;
-  height: 3em;
-
+  width: 2.5em!important;
+  height: 2.5em!important;
+  float: left;
+  font-size : 1em;
+  z-index: 101;
   img {
     border-radius: 50%;
-    width: 3em;
-  height: 3em;
-
+    width: 2.5em!important;
+  height: 2.5em!important;
+  z-index: 101;
   }    
 }
 
@@ -93,18 +130,16 @@ h1 {
   -o-transition : border 0.5s ease;
   -ms-transition : border 0.5s ease;
   transition : border 0.5s ease;
+  z-index: 101;
 }
 
-.imglink {
-  width: 3em;
-  height: 3em;
-  color: @white;
-  margin: 1em 0.5em 0 0.5em;
+p#timer{
   display: block;
-  text-decoration: none;
-  i {
-    display : block;
-    margin : 0 auto;
-  }
+  float: right;
+  font-size: 1.5em;
+  font-family: @mono;
+  margin: 0.5em;
+  font-weight: bold;
+  color : @red;
+  width: auto;
 }
-

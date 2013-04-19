@@ -7,16 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-  <div id="sidebar">
-    <a href="users/ne1ro" class="avatar"><%= image_tag('ne1ro.png') %></a>
-    <a href="notifications" class="imglink"><i class="icon-bell-alt icon-2x"></i></a>
-    <a href="events" class="imglink"><i class="icon-file-alt icon-2x"></i></a>
-    <a href="diaries" class="imglink"><i class="icon-book icon-2x"></i></a>
-    <a href="schedules" class="imglink"><i class="icon-calendar icon-2x"></i></a>
-    <a href="groups" class="imglink"><i class="icon-group icon-2x"></i></a>
-  </div>
-
+    
+    <nav>
+      <a href="users/ne1ro" class="avatar"><%= image_tag('ne1ro.png') %></a>
+      <a href="notices">Notices</i></a>
+      <a href="events">Events</i></a>
+      <a href="diaries">Diaries</i></a>
+      <a href="schedules">Schedules</i></a>
+      <a href="groups">Groups</i></a>
+      <p id="timer">
+        Apr 19 16:24
+      </p>
+    </nav>
+ 
   <div class="page">
     
     <div class="content">
