@@ -69,3 +69,42 @@ h1 {
   width: 30%;
   float: left;
 }
+
+.avatar {
+  border-radius: 50%;
+  border : 0.25em solid @white;
+  margin: 0.25em;
+  display: block;
+  width: 3em;
+  height: 3em;
+
+  img {
+    border-radius: 50%;
+    width: 3em;
+  height: 3em;
+
+  }    
+}
+
+.avatar:hover {
+  border : 0.25em solid @orange;
+  -webkit-transition : border 0.5s ease;
+  -moz-transition : border 0.5s ease;
+  -o-transition : border 0.5s ease;
+  -ms-transition : border 0.5s ease;
+  transition : border 0.5s ease;
+}
+
+.imglink {
+  width: 3em;
+  height: 3em;
+  color: @white;
+  margin: 1em 0.5em 0 0.5em;
+  display: block;
+  text-decoration: none;
+  i {
+    display : block;
+    margin : 0 auto;
+  }
+}
+
