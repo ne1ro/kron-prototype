@@ -60,9 +60,6 @@ GEM
     formatador (0.2.4)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    formtastic-bootstrap (2.0.0)
-      formtastic (~> 2.2)
-      formtastic-bootstrap
     fssm (0.2.10)
     guard (1.7.0)
       formatador (>= 0.2.4)
@@ -163,7 +160,7 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.1.0)
   coffee-rails (~> 3.2.1)
   compass-rails
-  formtastic-bootstrap
+  formtastic
   guard-livereload
   jquery-rails
   mongoid

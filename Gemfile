@@ -27,8 +27,7 @@ gem 'jquery-rails'
 gem 'unicorn'
 gem "angular-rails"
 gem "mongoid"
-gem 'bootstrap-sass', '~> 2.3.1.0'
-gem 'formtastic-bootstrap'
+gem 'formtastic'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
