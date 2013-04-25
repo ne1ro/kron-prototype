@@ -58,5 +58,15 @@
     $scope.current_year += 1
     
     
-
+# Events controller
+@EventCtrl = ($scope) ->
+  $scope.events = [
+    {minute : 0, hour : 7, header : 'Get up!', description : 'It`s time to wake up:)'}
+    {minute : 30, hour : 7, header : 'Run', description : 'It`s time to run.'}
+    {minute : 0, hour : 8, header : 'Twitter news', description : 'Read twitter news.'}
+    {minute : 10, hour : 8, header : 'Learn rails', description : 'Read something new about Ruby on Rails or watch new Ruby on Rails screencast.
+     Don`t forget to use rspec for tests.'}
+    {minute : 50, hour : 8, header : 'Go on the bus', description : 'Go on the bus.'}
+    
+  ]
     

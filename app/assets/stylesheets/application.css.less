@@ -304,5 +304,86 @@ p.chaser {
     background : @orange;
     border-radius : 0.5em;
     color : @white;
+    -webkit-transition : all 0.5s ease;
+    -moz-transition : all 0.5s ease;
+    -o-transition : all 0.5s ease;
+    -ms-transition : all 0.5s ease;
+    transition : all 0.5s ease;
   }  
+}
+
+.padding_wrapper{
+  margin : 1em;
+  position : relative;
+}
+
+.event{
+  display : block;
+  width : 100%;
+  background : @white;
+  border-bottom : 0.25em solid @orange;
+  clear : both;
+  font-size : 1.25em;
+  margin : -0.5em 0;
+  padding : 0;
+  position : relative;
+  .time,.header {
+    font-weight : bold;
+    margin-top : 0.5em;
+    margin-left : 0.5em;
+  }
+
+  p.time {
+    float : left;
+    display : block;
+    margin-right : 0.5em;
+    height : 100%;
+  }
+  p.header {
+    display : block;
+    padding-top : 0.5em;
+  }
+  .description {
+    padding-left : 3em;
+    font-size : 0.8em!important;
+  }
+  i.icon-edit, i.icon-trash, i.icon-group {
+    display : block;
+    color : @warm + #111;
+    position : absolute;
+    top : 0.5em;
+    font-size : 1em;
+  }
+  i.icon-edit {right : 3.5em}
+  i.icon-trash {right : 0.5em}
+  i.icon-group {right : 2em}
+}
+
+.event:hover {
+  background : @orange;
+  border-bottom : 0.25em solid @green;
+  color : @white;
+  -webkit-transition : all 0.5s ease;
+  -moz-transition : all 0.5s ease;
+  -o-transition : all 0.5s ease;
+  -ms-transition : all 0.5s ease;
+  transition : all 0.5s ease;
+}
+
+.eventshead {
+  background : @black;
+  height : 4em;
+  position : relative;
+}
+
+.eventshead:after{
+  content : '';
+  display : block;
+  width : 100%;
+  height : 8px;
+  position : absolute;
+  bottom : 0px;
+  background : url('fence_flipped.png');
+  margin-bottom : -8px;
+  z-index : 10;
 }
