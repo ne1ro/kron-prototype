@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 @TimeCtrl = ($scope, $timeout)->
 
-  # Declare months
+  # Declare months and week days
   $scope.months = [
     {month : "January"}
     {month : "February"}
@@ -18,6 +18,7 @@
     {month : "November"}
     {month : "December"}
     ]
+  $scope.dayweeks = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
   # Get current date
   $scope.getNow = ->
@@ -28,6 +29,8 @@
     $scope.current_date = $scope.months[$scope.current_month].month.substr(0,3) + ' ' + $scope.current_day.toString()
     $scope.current_time = $scope.now.getHours().toString() + ':' + $scope.now.getMinutes().toString()
     $scope.current_datetime = $scope.current_date + ' ' + $scope.current_time
+    $scope.current_dayweek = $scope.now.getDay()
+    $scope.current_weekday = $scope.dayweeks[$scope.current_weekday]
     $timeout($scope.getNow,1000)
 
   $timeout($scope.getNow,1000)

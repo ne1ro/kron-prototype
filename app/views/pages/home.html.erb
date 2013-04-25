@@ -6,17 +6,74 @@
   <p class="chaser" ng-model="current_month"><i class="icon-angle-left" ng-click="decMonth()"></i>{{months[current_month].month}}<i class="icon-angle-right" ng-click="incMonth()"></i></p>
   <p class="chaser"><i class="icon-angle-left" ng-click="decYear()"></i>{{current_year}}<i class="icon-angle-right" ng-click="incYear()"></i></p>
   
-  <table class="calendar">
-    <tr class="days">
-        <td>Sun</td>
-        <td>Mon</td>
-        <td>Tue</td>
-        <td>Wed</td>
-        <td>Thu</td>
-        <td>Fri</td>
-        <td>Sat</td>
-    </tr>
-  </table>
+  <div class="calendar">
+    <div class="row days">
+        <div class="day">Sun</div>
+        <div class="day">Mon</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thu</div>
+        <div class="day active">Fri</div>
+        <div class="day">Sat</div>
+        <script type="text/javascript">
+          $('row days').children().eq($scope.current_dayweek).addClass('active')
+        </script>
+    </div>
+    <div class="row">
+        <div class="day deactive">31</div>
+        <div class="day">1</div>
+        <div class="day">2</div>
+        <div class="day">3</div>
+        <div class="day">4</div>
+        <div class="day">5</div>
+        <div class="day">6</div>
+    </div>
+    <div class="row">
+        <div class="day">7</div>
+        <div class="day">8</div>
+        <div class="day">9</div>
+        <div class="day">10</div>
+        <div class="day">11</div>
+        <div class="day">12</div>
+        <div class="day">13</div>
+    </div>
+    <div class="row">
+        <div class="day">14</div>
+        <div class="day">15</div>
+        <div class="day">16</div>
+        <div class="day">17</div>
+        <div class="day">18</div>
+        <div class="day">19</div>
+        <div class="day">20</div>
+    </div>
+    <div class="row">
+        <div class="day">21</div>
+        <div class="day">22</div>
+        <div class="day">23</div>
+        <div class="day">24</div>
+        <div class="day">25</div>
+        <div class="day active">26</div>
+        <div class="day">27</div>
+    </div>
+    <div class="row">
+        <div class="day">28</div>
+        <div class="day">29</div>
+        <div class="day">30</div>
+        <div class="day deactive">1</div>
+        <div class="day deactive">2</div>
+        <div class="day deactive">3</div>
+        <div class="day deactive">4</div>
+    </div>
+    <div class="row">
+        <div class="day deactive">5</div>
+        <div class="day deactive">6</div>
+        <div class="day deactive">7</div>
+        <div class="day deactive">8</div>
+        <div class="day deactive">9</div>
+        <div class="day deactive">10</div>
+        <div class="day deactive">11</div>
+    </div>
+  </div>
 </div>
 
 <div id="eventside">
