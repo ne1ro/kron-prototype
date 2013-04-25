@@ -82,9 +82,12 @@
   <h1>My events</h1>
   <div class="padding_wrapper">
     <div class="eventshead">
-        
+      <div id="searchwrapper">
+       <input type="text" id="search" ng-model="query">   
+      </div>
+      <i class="icon-group"></i><i class="icon-plus-sign"></i><i class="icon-search"></i>    
     </div>
-    <div class="event" ng-repeat="event in events">
+    <div class="event" ng-repeat="event in events | filter : query">
     <p class="time">{{event.hour.toString() + ':' + event.minute.toString()}}</p>
     <p class="header">{{event.header}}</p>
     <p class="description">{{event.description}}</p>

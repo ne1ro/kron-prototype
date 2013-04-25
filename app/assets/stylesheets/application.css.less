@@ -374,6 +374,56 @@ p.chaser {
   background : @black;
   height : 4em;
   position : relative;
+  
+  i.icon-plus-sign, i.icon-group {
+    color : @orange;
+    font-size : 2em;
+    display : block;
+    position : absolute;
+    top : 0.5em;
+    right : 0.5em;
+  }
+
+  i.icon-plus-sign:hover, i.icon-group:hover {
+    color : @green;
+    -webkit-transition : color 0.5s ease;
+    -moz-transition : color 0.5s ease;
+    -o-transition : color 0.5s ease;
+    -ms-transition : color 0.5s ease;
+    transition : color 0.5s ease;
+  }
+
+  i.icon-search {
+    color : @warm;
+    display : block;
+    position : absolute;
+    top : 1.15em;
+    font-size : 1.25em;
+    left : 1.2em;
+  }
+
+  i.icon-group {
+    right : 2em
+  }
+  #searchwrapper{
+   padding-top : 1em;
+   margin: 0em 9em 1em 1em;
+   height : 100%;
+    
+  }
+  input {
+    display : block;
+    background : @white;
+    border : none;
+    width : 100%;
+    border-radius : 0.5em;
+    float : left;
+    height : 2em;
+    font-family : @ubuntu;
+    font-size : 1em;
+    padding-left : 2em;
+    padding-top : 0;
+  }
 }
 
 .eventshead:after{
