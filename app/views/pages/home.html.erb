@@ -83,7 +83,7 @@
   <div class="padding_wrapper">
     <div class="eventshead">
       <div id="searchwrapper">
-       <input type="text" id="search" ng-model="query">   
+       <input type="text" id="search" ng-model="query1">   
       </div>
       <i class="icon-group"></i><i class="icon-plus-sign"></i><i class="icon-search"></i>    
     </div>
@@ -96,9 +96,18 @@
   </div>
 </div>
 
-<div id="socialside">
+<div id="socialside" ng-controller="GroupCtrl">
   <h1>My groups</h1>
   <div class="padding_wrapper">
-    
+    <div class="group" ng-repeat="group in groups">
+      <div id="header">
+        <p>{{group.name}}</p>
+        <i class="icon-edit"></i>
+        <i class="icon-trash"></i>
+        <div id="users" ng-repeat="user in group.users">
+          <a href="users/{{user}}" class="avatar"><%= image_tag('anon.png') %></a>          
+        </div>  
+      </div>    
+    </div>
   </div>
 </div>

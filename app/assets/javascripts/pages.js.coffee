@@ -67,6 +67,16 @@
     {minute : 10, hour : 8, header : 'Learn rails', description : 'Read something new about Ruby on Rails or watch new Ruby on Rails screencast.
      Don`t forget to use rspec for tests.'}
     {minute : 50, hour : 8, header : 'Go on the bus', description : 'Go on the bus.'}
-    
+  ]
+
+#Groups Controller
+@GroupCtrl = ($scope) ->
+  $scope.groups = [
+    {name : 'Subscribes', users : [
+      'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse'
+    ]}
+    {name : 'Legion', users : [
+      'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse'
+    ]}
   ]
     
