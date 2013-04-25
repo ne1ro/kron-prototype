@@ -227,27 +227,52 @@ p#timer{
 
 p.chaser {
   display : block;
-  float : left;
-  margin-right : 2.5em;
-  text-decoration: underline;
-  font-size : 1.2em;
+  float : right;
+  margin-left : 2.5em;
+  font-weight : bold;
+  // font-size : 1.2em;
   i {
+    display : block;
+    width : 0.75em;
     font-weight : bold;
     text-decoration: none;
-  }
-  i.icon-angle-left{
-    margin-right : 0.25em;
+    margin : 0 0.25em 0 0.25em;
+    background : @brown;
+    border-radius : 50%;
+    color : @white;
     
   }
-  i.icon-angle-right{
-    margin-left : 0.25em;
+  i.icon-angle-left {
+    float : left;
+    padding-left : 0.25em;
   }
+   i.icon-angle-right {
+    width : 0.66em;
+    float : right;
+    padding-left : 0.34em;
+  }
+
   i:hover {
+    background : @black;
     color : @orange;
-    -webkit-transition : color 0.5s ease;
-    -moz-transition : color 0.5s ease;
-    -o-transition : color 0.5s ease;
-    -ms-transition : color 0.5s ease;
-    transition : color 0.5s ease;
+    -webkit-transition : all 0.5s ease;
+    -moz-transition : all 0.5s ease;
+    -o-transition : all 0.5s ease;
+    -ms-transition : all 0.5s ease;
+    transition : all 0.5s ease;
   }
+}
+
+table.calendar {
+  width : 100%;
+  display : block;
+  clear : both;
+  background : @white;
+  border-spacing : 0;
+  
+  tr.days {
+    background : @black;
+    font-weight : bold;
+    color : @white;
+  }  
 }

@@ -1,7 +1,8 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-@TimeCtrl = ($scope)->
+@TimeCtrl = ($scope, $timeout)->
+
   # Declare months
   $scope.months = [
     {month : "January"}
@@ -17,9 +18,21 @@
     {month : "November"}
     {month : "December"}
     ]
-  $scope.current_month = 3
-  $scope.current_year = 2013
 
+  # Get current date
+  $scope.getNow = ->
+    $scope.now = new Date()
+    $scope.current_month = $scope.now.getUTCMonth()
+    $scope.current_year = $scope.now.getUTCFullYear()
+    $scope.current_day = $scope.now.getUTCDate()
+    $scope.current_date = $scope.months[$scope.current_month].month.substr(0,3) + ' ' + $scope.current_day.toString()
+    $scope.current_time = $scope.now.getHours().toString() + ':' + $scope.now.getMinutes().toString()
+    $scope.current_datetime = $scope.current_date + ' ' + $scope.current_time
+    $timeout($scope.getNow,1000)
+
+  $timeout($scope.getNow,1000)
+  
+  
   # Decrementation month by one
   $scope.decMonth = ->
     if $scope.current_month > 0

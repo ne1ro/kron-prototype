@@ -1,8 +1,22 @@
 <div id="timeside" ng-controller="TimeCtrl">
+  
   <h1>My time</h1>
-  <p><b>My time zone : </b>Moscow(UTC+3) <a href="/timezone">...</a>   </p>
+  <p style="display : block; float : left;"><b>My timezone : </b>Moscow(UTC+3) <a href="/timezone">...</a>   </p>
+  
   <p class="chaser" ng-model="current_month"><i class="icon-angle-left" ng-click="decMonth()"></i>{{months[current_month].month}}<i class="icon-angle-right" ng-click="incMonth()"></i></p>
   <p class="chaser"><i class="icon-angle-left" ng-click="decYear()"></i>{{current_year}}<i class="icon-angle-right" ng-click="incYear()"></i></p>
+  
+  <table class="calendar">
+    <tr class="days">
+        <td>Sun</td>
+        <td>Mon</td>
+        <td>Tue</td>
+        <td>Wed</td>
+        <td>Thu</td>
+        <td>Fri</td>
+        <td>Sat</td>
+    </tr>
+  </table>
 </div>
 
 <div id="eventside">
