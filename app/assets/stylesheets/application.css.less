@@ -64,6 +64,19 @@ nav {
   height: auto;
   min-height: 300px;
   padding: 4em 1em;
+
+  a {
+    color : @black;
+  }
+
+  a:visited {
+    color : @black + #222;
+  }
+
+  a:hover {
+    color : @orange;
+    transition : color 0.5s ease;
+  }
 }
 
 #timeside {
@@ -143,7 +156,7 @@ p#timer{
   font-family: @mono;
   margin: 0.5em;
   font-weight: bold;
-  color : @red;
+  color : @warm;
   width: auto;
 }
 
@@ -160,6 +173,7 @@ p#timer{
 
   ul {
     list-style-type: disc;
+    margin : 0.5em 0;
   }
 
   a{
@@ -209,4 +223,31 @@ p#timer{
 
 .uppercase {
   text-transform: uppercase;
+}
+
+p.chaser {
+  display : block;
+  float : left;
+  margin-right : 2.5em;
+  text-decoration: underline;
+  font-size : 1.2em;
+  i {
+    font-weight : bold;
+    text-decoration: none;
+  }
+  i.icon-angle-left{
+    margin-right : 0.25em;
+    
+  }
+  i.icon-angle-right{
+    margin-left : 0.25em;
+  }
+  i:hover {
+    color : @orange;
+    -webkit-transition : color 0.5s ease;
+    -moz-transition : color 0.5s ease;
+    -o-transition : color 0.5s ease;
+    -ms-transition : color 0.5s ease;
+    transition : color 0.5s ease;
+  }
 }
