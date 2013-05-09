@@ -23,9 +23,9 @@
   # Get current date
   $scope.getNow = ->
     $scope.now = new Date()
-    $scope.current_month = $scope.now.getUTCMonth()
-    $scope.current_year = $scope.now.getUTCFullYear()
-    $scope.current_day = $scope.now.getUTCDate()
+    $scope.current_month = $scope.now.getMonth()
+    $scope.current_year = $scope.now.getFullYear()
+    $scope.current_day = $scope.now.getDate()
     $scope.current_date = $scope.months[$scope.current_month].month.substr(0,3) + ' ' + $scope.current_day.toString()
     $scope.current_time = $scope.now.getHours().toString() + ':' + $scope.now.getMinutes().toString()
     $scope.current_datetime = $scope.current_date + ' ' + $scope.current_time
@@ -73,10 +73,10 @@
 @GroupCtrl = ($scope) ->
   $scope.groups = [
     {name : 'Subscribes', users : [
-      'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse'
+      'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon' 
     ]}
     {name : 'Legion', users : [
-      'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon', 'Anonymouse'
+      'Anonymous', 'Anon', 'Anonymouse', 'Anonymous', 'Anon' 
     ]}
   ]
     
