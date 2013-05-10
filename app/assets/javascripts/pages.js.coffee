@@ -1,6 +1,8 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+app = angular.module "Events", ["ngResource"]
+
 @TimeCtrl = ($scope, $timeout)->
 
   # Declare months and week days
@@ -59,7 +61,7 @@
     
     
 # Events controller
-@EventCtrl = ($scope) ->
+@EventCtrl = ($scope, $resource) ->
   $scope.events = [
     {minute : 0, hour : 7, header : 'Get up!', description : 'It`s time to wake up:)'}
     {minute : 30, hour : 7, header : 'Run', description : 'It`s time to run.'}

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  header: MyString
+  description: MyString
+  rating: 1
+  time: 2013-05-10 16:38:07
+
+two:
+  header: MyString
+  description: MyString
+  rating: 1
+  time: 2013-05-10 16:38:07
