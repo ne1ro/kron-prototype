@@ -84,7 +84,7 @@
       <div id="searchwrapper">
        <input type="text" id="search" ng-model="query">   
       </div>
-      <i class="icon-group"></i><i class="icon-plus-sign"></i><i class="icon-search"></i>    
+      <i class="icon-group"></i><i class="icon-plus-sign" onclick="showAddEvent()"></i><i class="icon-search"></i>    
     </div>
     <div class="event" ng-repeat="event in events | filter : query">
     <p class="time">{{event.hour.toString() + ':' + event.minute.toString()}}</p>
