@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(params[:entry])
+    @event = Event.create(params[:event])
     respond_to do |format|
       format.html
       format.json {render :json => @event}
@@ -30,7 +30,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event = Event.update(params[:id], params[:entry])
+    @event = Event.update(params[:id], params[:event])
     respond_to do |format|
       format.html
       format.json {render :json => @event}

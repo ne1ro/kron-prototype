@@ -7,7 +7,7 @@
   # Event = $resource("/events")
   $scope.events = Event.query()
 
-  $scope.addEntry = ->
+  $scope.addEvent = ->
     event = Event.save($scope.newEvent)
     $scope.events.push(event)
     $scope.newEvent = {}

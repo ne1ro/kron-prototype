@@ -78,6 +78,17 @@
 </div>
 
 <div id="eventside" ng-controller="EventCtrl">
+  
+  <div id="addeventbox">
+    <i class="icon-remove" onclick="closeAddEvent()"></i>
+    <h1>Create new event :</h1>
+    <form ng-submit="addEvent()">
+      <input type="text" placeholder="Header" class="textinput" ng-model="newEvent.header">
+      <textarea placeholder="Description" ng-model="newEvent.description"></textarea>
+      <input type="submit" value="Create" class="buttoninput">
+    </form>
+  </div>
+
   <h1>My events</h1>
   <div class="padding_wrapper">
     <div class="eventshead">
