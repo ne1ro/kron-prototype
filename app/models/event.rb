@@ -5,7 +5,12 @@ class Event
   field :header, type: String
   field :description, type: String
   field :rating, type: Integer
-  field :time, type: Time, :default -> {DateTime.now}
+  field :hour, type: Integer
+  field :minute, type: Integer
+  field :month, type: Integer
+  field :day, type: Integer
+  field :year, type: Integer
+  field :time, type: Time
 
   embeds_many :notifications
 end

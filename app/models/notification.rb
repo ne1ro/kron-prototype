@@ -3,7 +3,7 @@ class Notification
   include Mongoid::Timestamps
 
   field :text, type: String
-  field :time, type: Time, :default -> {DateTime.now}
+  field :time, type: Time
 
   embedded_in :event
 end

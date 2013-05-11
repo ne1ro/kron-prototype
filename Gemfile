@@ -23,7 +23,6 @@ end
 
 gem 'jquery-rails'
 gem 'unicorn'
-gem "angular-rails"
 gem "mongoid"
 gem 'formtastic'
 gem 'less-rails'

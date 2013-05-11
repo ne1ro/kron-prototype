@@ -1,7 +1,6 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-app = angular.module "Events", ["ngResource"]
 
 @TimeCtrl = ($scope, $timeout)->
 
@@ -62,14 +61,14 @@ app = angular.module "Events", ["ngResource"]
     
 # Events controller
 @EventCtrl = ($scope, $resource) ->
-  $scope.events = [
-    {minute : 0, hour : 7, header : 'Get up!', description : 'It`s time to wake up:)'}
-    {minute : 30, hour : 7, header : 'Run', description : 'It`s time to run.'}
-    {minute : 0, hour : 8, header : 'Twitter news', description : 'Read twitter news.'}
-    {minute : 10, hour : 8, header : 'Learn rails', description : 'Read something new about Ruby on Rails or watch new Ruby on Rails screencast.
-     Don`t forget to use rspec for tests.'}
-    {minute : 50, hour : 8, header : 'Go on the bus', description : 'Go on the bus.'}
-  ]
+  Event = $resource("/events/:id", {id: '@id'}, {update: {method: "PUT"}})
+  # Event = $resource("/events")
+  $scope.events = Event.query()
+
+  $scope.addEntry = ->
+    event = Event.save($scope.newEvent)
+    $scope.events.push(event)
+    $scope.newEvent = {}
 
 #Groups Controller
 @GroupCtrl = ($scope) ->
