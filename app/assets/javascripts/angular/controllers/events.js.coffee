@@ -3,8 +3,6 @@
 
 # Events controller
 @EventCtrl = ["$scope", "Event", ($scope, Event) ->
-  # Event = $resource("/events/:id", {id: '@id'}, {update: {method: "PUT"}})
-  # Event = $resource("/events")
   $scope.events = Event.query()
 
   $scope.addEvent = ->
@@ -12,12 +10,13 @@
     $scope.events.push(event)
     $scope.newEvent = {}
 
-  $scope.showEvent = (event) ->
+  $scope.showEvent = (event, $index) ->
     $scope.editEvent = Event.get(id : event._id)
 
   $scope.updateEvent = ->
+    $scope.editEvent.$update(id : $scope.editEvent._id)
+    $scope.events = Event.query()
     
-
   $scope.deleteEvent = (event, $index) ->
     Event.delete(id : event._id)
     $scope.events.splice($index,1)

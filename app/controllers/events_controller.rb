@@ -30,10 +30,10 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event = Event.update(params[:id], params[:event])
+    @event = Event.find(params[:id])
+    @event.update_attributes(params[:event])
     respond_to do |format|
-      format.html
-      format.json {render :json => @event}
+      format.json {head :no_content}
     end
   end
 

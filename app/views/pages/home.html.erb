@@ -92,7 +92,7 @@
   <div class="eventbox" id="edit">
     <i class="icon-remove" onclick="closeEditEvent()"></i>
     <h1>Edit event :</h1>
-    <form ng-submit="editEvent()">
+    <form ng-submit="updateEvent()">
       <input type="text" placeholder="Header" class="textinput" ng-model="editEvent.header">
       <textarea placeholder="Description" ng-model="editEvent.description"></textarea>
       <input type="submit" value="Update" class="buttoninput">
@@ -112,7 +112,7 @@
     <p class="time">{{event.hour.toString() + ':' + event.minute.toString()}}</p>
     <p class="header">{{event.header}}</p>
     <p class="description">{{event.description}}</p>
-      <i class="icon-edit" ng-click="showEvent(event)" onclick="showEditEvent()"></i>
+      <i class="icon-edit" ng-click="showEvent(event, $index)" onclick="showEditEvent()"></i>
       <i class="icon-trash" ng-click="deleteEvent(event, $index)"></i>
       <i class="icon-group"></i>     
     </div>
