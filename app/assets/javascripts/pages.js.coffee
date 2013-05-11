@@ -1,6 +1,12 @@
 @showAddEvent = ->  
-  $('#addeventbox').slideDown 500   
+  $('.eventbox#add').slideDown 500   
 
 @closeAddEvent = ->
-  $('#addeventbox').slideUp 500
+  $('.eventbox#add').slideUp 500
+
+@showEditEvent = ->  
+  $('.eventbox#edit').slideDown 500   
+
+@closeEditEvent = ->
+  $('.eventbox#edit').slideUp 500
   

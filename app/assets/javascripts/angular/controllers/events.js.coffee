@@ -12,6 +12,12 @@
     $scope.events.push(event)
     $scope.newEvent = {}
 
+  $scope.showEvent = (event) ->
+    $scope.editEvent = Event.get(id : event._id)
+
+  $scope.updateEvent = ->
+    
+
   $scope.deleteEvent = (event, $index) ->
     Event.delete(id : event._id)
     $scope.events.splice($index,1)
