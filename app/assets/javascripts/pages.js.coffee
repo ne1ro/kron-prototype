@@ -58,10 +58,15 @@
   $scope.incYear = ->
     $scope.current_year += 1
     
-    
+
+# Resource
+app.factory "Event" , ["$resource", ($resource) ->
+  $resource("/events/:id", {id: '@id'}, {update: {method: "PUT"}})
+]
+
 # Events controller
-@EventCtrl = ($scope, $resource) ->
-  Event = $resource("/events/:id", {id: '@id'}, {update: {method: "PUT"}})
+@EventCtrl = ["$scope", "Event", ($scope, Event) ->
+  # Event = $resource("/events/:id", {id: '@id'}, {update: {method: "PUT"}})
   # Event = $resource("/events")
   $scope.events = Event.query()
 
@@ -69,6 +74,11 @@
     event = Event.save($scope.newEvent)
     $scope.events.push(event)
     $scope.newEvent = {}
+
+  $scope.deleteEvent = (event, $index) ->
+    Event.delete(id : event._id)
+    $scope.events.splice($index,1)
+]    
 
 #Groups Controller
 @GroupCtrl = ($scope) ->

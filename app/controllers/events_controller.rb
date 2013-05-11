@@ -38,10 +38,11 @@ class EventsController < ApplicationController
   end
 
   def destroy
-  @event = Event.destroy(params[:id])
+    @event = Event.find(params[:id])
+    @event.destroy
     respond_to do |format|
       format.html
-      format.json {render :json => @event}
+      format.json{head :no_content }
     end   
   end 
 end
