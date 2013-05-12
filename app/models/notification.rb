@@ -6,4 +6,5 @@ class Notification
 
   embedded_in :event
   embeds_many :timers
+
 end
