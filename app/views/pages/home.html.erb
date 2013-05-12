@@ -106,8 +106,9 @@
     </div>
   
     <div class="event" ng-repeat="event in events | filter : query" ng-mouseenter="event.showDescription=true" ng-mouseleave="event.showDescription=false">
-    <p class="time">{{event.hour.toString() + ':' + event.minute.toString()}}</p>
+    <p class="time">{{event.timers[0].hour + ':' + event.timers[0].minute}}</p>
     <p class="header">{{event.header}}</p>
+
     <p class="description" ng-show="event.showDescription">{{event.description}}</p>
       <i class="icon-edit" ng-click="showEvent(event, $index)"></i>
       <i class="icon-trash" ng-click="deleteEvent(event, $index)"></i>

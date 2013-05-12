@@ -23,6 +23,16 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(params[:event])
+
+    # Default value for timer - today
+    if @event.timers.empty?
+      now = DateTime.now()
+      timer = Timer.new
+        timer.hour = now.hour
+        timer.minute = now.minute
+      @event.timers << timer  
+    end
+
     respond_to do |format|
       format.html
       format.json {render :json => @event}
