@@ -5,22 +5,22 @@ class Event
   field :header, type: String
   field :description, type: String
   field :rating, type: Integer
+  field :time, type: DateTime
 
   embeds_many :notifications
-  embeds_many :timers
 
   # Callbacks
   before_save :check_header, :if => :header?
-  before_save :check_timer, :if => :timers?
+  before_save :check_time, :if => :time?
   before_update :check_header, :if => :header?
-  before_update :check_timer, :if => :timers?
+  before_update :check_time, :if => :time?
 
   def header?
     header.blank?
   end
 
-  def timers?
-    timers.empty?
+  def time?
+    time.nil?
   end
 
   protected
@@ -29,15 +29,9 @@ class Event
       self.header = 'My event'
     end
 
-    def check_timer
-      # Set current time
-      now = DateTime.now; time = self.timers.build(:header => 'Event started at')
-      time.year = now.year
-      time.month = now.month
-      time.day = now.day
-      time.wday = now.wday
-      time.hour = now.hour
-      time.minute = now.minute
+    def check_time
+      # Set default time
+      self.time = DateTime.now
     end
 
 end

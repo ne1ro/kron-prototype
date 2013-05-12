@@ -5,6 +5,5 @@ class Notification
   field :text, type: String
 
   embedded_in :event
-  embeds_many :timers
 
 end

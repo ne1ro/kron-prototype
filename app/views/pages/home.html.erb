@@ -106,7 +106,7 @@
     </div>
   
     <div class="event" ng-repeat="event in events | filter : query" ng-mouseenter="event.showDescription=true" ng-mouseleave="event.showDescription=false">
-    <p class="time">{{event.timers[0].hour + ':' + event.timers[0].minute}}</p>
+    <p class="time">{{event.time | date:'H:mm'}}</p>
     <p class="header">{{event.header}}</p>
 
     <p class="description" ng-show="event.showDescription">{{event.description}}</p>
