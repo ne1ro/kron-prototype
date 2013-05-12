@@ -14,9 +14,6 @@
             <div class="day active">Thu</div>
             <div class="day">Fri</div>
             <div class="day">Sat</div>
-            <script type="text/javascript">
-              $('row days').children().eq($scope.current_dayweek).addClass('active')
-            </script>
         </div>
         <div class="row">
             <div class="day deactive">31</div>
@@ -79,8 +76,8 @@
 
 <div id="eventside" ng-controller="EventCtrl">
   
-  <div class="eventbox" id="add">
-    <i class="icon-remove" onclick="closeAddEvent()"></i>
+  <div class="eventbox" id="add" ng-show="showAddBox">
+    <i class="icon-remove" ng-click="showAddBox = false"></i>
     <h1>Create new event :</h1>
     <form ng-submit="addEvent()">
       <input type="text" placeholder="Header" class="textinput" ng-model="newEvent.header">
@@ -89,8 +86,8 @@
     </form>
   </div>
 
-  <div class="eventbox" id="edit">
-    <i class="icon-remove" onclick="closeEditEvent()"></i>
+  <div class="eventbox" id="edit" ng-show="showEditBox">
+    <i class="icon-remove" ng-click="showEditBox = false"></i>
     <h1>Edit event :</h1>
     <form ng-submit="updateEvent()">
       <input type="text" placeholder="Header" class="textinput" ng-model="editEvent.header">
@@ -105,14 +102,14 @@
       <div id="searchwrapper">
        <input type="text" id="search" ng-model="query">   
       </div>
-      <i class="icon-group"></i><i class="icon-plus-sign" onclick="showAddEvent()"></i><i class="icon-search"></i>    
+      <i class="icon-group"></i><i class="icon-plus-sign" ng-click="showAddBox = true"></i><i class="icon-search"></i>    
     </div>
-
+  
     <div class="event" ng-repeat="event in events | filter : query">
     <p class="time">{{event.hour.toString() + ':' + event.minute.toString()}}</p>
     <p class="header">{{event.header}}</p>
     <p class="description">{{event.description}}</p>
-      <i class="icon-edit" ng-click="showEvent(event, $index)" onclick="showEditEvent()"></i>
+      <i class="icon-edit" ng-click="showEvent(event, $index)"></i>
       <i class="icon-trash" ng-click="deleteEvent(event, $index)"></i>
       <i class="icon-group"></i>     
     </div>

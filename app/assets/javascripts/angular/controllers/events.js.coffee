@@ -4,6 +4,9 @@
 # Events controller
 @EventCtrl = ["$scope", "Event", ($scope, Event) ->
   $scope.events = Event.query()
+  
+  $scope.showAddBox = false;
+  $scope.showEditBox = false;
 
   $scope.addEvent = ->
     event = Event.save($scope.newEvent)
@@ -11,6 +14,7 @@
     $scope.newEvent = {}
 
   $scope.showEvent = (event, $index) ->
+    $scope.showEditBox = true
     $scope.editEvent = Event.get(id : event._id)
 
   $scope.updateEvent = ->
