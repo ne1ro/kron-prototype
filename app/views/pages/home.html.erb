@@ -105,10 +105,10 @@
       <i class="icon-group"></i><i class="icon-plus-sign" ng-click="showAddBox = true"></i><i class="icon-search"></i>    
     </div>
   
-    <div class="event" ng-repeat="event in events | filter : query">
+    <div class="event" ng-repeat="event in events | filter : query" ng-mouseenter="event.showDescription=true" ng-mouseleave="event.showDescription=false">
     <p class="time">{{event.hour.toString() + ':' + event.minute.toString()}}</p>
     <p class="header">{{event.header}}</p>
-    <p class="description">{{event.description}}</p>
+    <p class="description" ng-show="event.showDescription">{{event.description}}</p>
       <i class="icon-edit" ng-click="showEvent(event, $index)"></i>
       <i class="icon-trash" ng-click="deleteEvent(event, $index)"></i>
       <i class="icon-group"></i>     
