@@ -531,9 +531,9 @@ p.chaser {
   }
 
   input.textinput {
-    width : 24em;
+    width : 20em;
     display : block;
-    border-radius : 0.5em;
+    border-radius : 0.5em 0 0 0.5em;
     float : left;
     height : 1.5em;
     font-family : @ubuntu;
@@ -541,12 +541,13 @@ p.chaser {
     padding-left : 1em;
     padding-right : 1em;
     padding-top : 0;
-    margin : 1em 0 1em 0;  
+    margin : 1em 0 1em 0;
+    border : none;  
   }
 
   textarea {
     width : 30em;
-    height : 10em;
+    height : 8em;
     display : block;
     float : right;
     border : none;
@@ -555,6 +556,7 @@ p.chaser {
     border-radius : 0.5em;
     margin : 1em 0 1em 0;
     padding : 0.5em;
+    
   }
 
   input.buttoninput {
@@ -562,10 +564,12 @@ p.chaser {
     font-family : @ubuntu;
     background : @green;
     color : @white;
-    padding : 0.5em;
-    border : @black;
-    border-radius : 0.5em;
     display : block; 
+    border : none;
+    float : left;
+    height : 1.55em;
+    border-radius : 0 0.5em 0.5em 0;
+    margin : 1em 0 1em 0;
 }
 
   .buttoninput:hover {
@@ -575,6 +579,55 @@ p.chaser {
     -o-transition : background 0.5s ease;
     -ms-transition : background 0.5s ease;
     transition : background 0.5s ease;
+  }
+
+  .dateinput {
+    width : 5.25em;
+    float : left;
+    position : relative;
+    margin-right : 2.5em;
+    margin-bottom : 1em;
+    
+    p {
+      font-weight : bold;
+      margin : 0 0 0 0.25em;
+    }
+    input#input {
+      width : 2.25em;
+      margin-left : 1.25em;
+      padding : 0 0.25em 0 0.25em;
+      font-size : 1em;
+      font-family : @ubuntu;
+      display : block;
+      float : left;
+      border : none;
+      text-align : right;
+    }
+
+    input.button-date{
+      position : absolute;
+      padding : 0;
+      margin : 0;
+      width : 1.5em;
+      height : 1.5em;
+      font-weight : bold;
+      border : none;
+      margin-top : 0.15em;  
+    }
+  }
+
+  #button-plus {
+    background : @green;
+    color : @white;
+    right : 0;
+    border-radius : 0 0.5em 0.5em 0;
+  }
+
+  #button-minus {
+    background : #F00 - #222;
+    color : @white;
+    left : 0;
+    border-radius : 0.5em 0 0 0.5em;
   }
 }
 

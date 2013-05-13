@@ -2,9 +2,9 @@
 # Resource
 
 # Events controller
-@EventCtrl = ["$scope", "Event", ($scope, Event) ->
+@EventCtrl = ["$scope", "$filter", "Event", ($scope, $filter, Event) ->
   $scope.events = Event.query()
-  
+  $scope.data = new Date()
   $scope.showAddBox = false;
   $scope.showEditBox = false;
 
