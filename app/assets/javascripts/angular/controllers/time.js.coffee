@@ -21,14 +21,6 @@
   # Get current date
   $scope.getNow = ->
     $scope.now = new Date()
-    $scope.current_month = $scope.now.getMonth()
-    $scope.current_year = $scope.now.getFullYear()
-    $scope.current_day = $scope.now.getDate()
-    $scope.current_date = $scope.months[$scope.current_month].month.substr(0,3) + ' ' + $scope.current_day.toString()
-    $scope.current_time = $scope.now.getHours().toString() + ':' + $scope.now.getMinutes().toString()
-    $scope.current_datetime = $scope.current_date + ' ' + $scope.current_time
-    $scope.current_dayweek = $scope.now.getDay()
-    $scope.current_weekday = $scope.dayweeks[$scope.current_weekday]
     $timeout($scope.getNow,1000)
 
   $timeout($scope.getNow,1000)

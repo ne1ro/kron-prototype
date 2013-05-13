@@ -76,60 +76,9 @@
 
 <div id="eventside" ng-controller="EventCtrl">
   
-  <div class="eventbox" id="add" ng-show="showAddBox">
-    <i class="icon-remove" ng-click="showAddBox = false"></i>
-    <h1>Create new event :</h1>
-    <form ng-submit="addEvent()">
-      <input type="text" placeholder="Header" class="textinput" ng-model="newEvent.header">
-      <input type="submit" value="Create" class="buttoninput">
-      <textarea placeholder="Description" ng-model="newEvent.description"></textarea>
-      <div class="dateinput">
-        <p>Year</p>
-        <input type="text" ng-model="newEvent.year" id="input">
-        <input type="button" class="button-date" id="button-plus"ng-click="newEvent.year = newEvent.year + 1" value="+">
-        <input type="button" class="button-date" id="button-minus"ng-click="newEvent.year = newEvent.year- 1" value="-">
-      </div>
+  <%= render 'layouts/eventbox', :action => 'create', :description => 'Create', :meth => 'New' %>
 
-      <div class="dateinput">
-        <p>Month</p>
-        <input type="text" ng-model="newEvent.month" id="input">
-        <input type="button" class="button-date" id="button-plus"ng-click="newEvent.month = newEvent.month + 1" value="+">
-        <input type="button" class="button-date" id="button-minus"ng-click="newEvent.month = newEvent.month- 1" value="-">
-      </div>
-
-      <div class="dateinput">
-        <p>Day</p>
-        <input type="text" ng-model="newEvent.day" id="input">
-        <input type="button" class="button-date" id="button-plus"ng-click="newEvent.day = newEvent.day + 1" value="+">
-        <input type="button" class="button-date" id="button-minus"ng-click="newEvent.day = newEvent.day- 1" value="-">
-      </div>
-
-      <div class="dateinput">
-        <p>Hour</p>
-        <input type="text" ng-model="newEvent.day" id="input">
-        <input type="button" class="button-date" id="button-plus"ng-click="newEvent.day = newEvent.day + 1" value="+">
-        <input type="button" class="button-date" id="button-minus"ng-click="newEvent.day = newEvent.day- 1" value="-">
-      </div>
-
-      <div class="dateinput">
-        <p>Minute</p>
-        <input type="text" ng-model="newEvent.day" id="input">
-        <input type="button" class="button-date" id="button-plus"ng-click="newEvent.day = newEvent.day + 1" value="+">
-        <input type="button" class="button-date" id="button-minus"ng-click="newEvent.day = newEvent.day- 1" value="-">
-      </div>
-      
-    </form>
-  </div>
-
-  <div class="eventbox" id="edit" ng-show="showEditBox">
-    <i class="icon-remove" ng-click="showEditBox = false"></i>
-    <h1>Edit event :</h1>
-    <form ng-submit="updateEvent()">
-      <input type="text" placeholder="Header" class="textinput" ng-model="editEvent.header">
-      <textarea placeholder="Description" ng-model="editEvent.description"></textarea>
-      <input type="submit" value="Update" class="buttoninput">
-    </form>
-  </div>
+  <%= render 'layouts/eventbox', :action => 'update', :description => 'Update', :meth => 'Edit' %>
 
   <h1>My events</h1>
   <div class="padding_wrapper">
@@ -137,7 +86,7 @@
       <div id="searchwrapper">
        <input type="text" id="search" ng-model="query">   
       </div>
-      <i class="icon-group"></i><i class="icon-plus-sign" ng-click="showAddBox = true"></i><i class="icon-search"></i>    
+      <i class="icon-group"></i><i class="icon-plus-sign" ng-click="showNewBox = true"></i><i class="icon-search"></i>    
     </div>
   
     <div class="event" ng-repeat="event in events | filter : query" ng-mouseenter="event.showDescription=true" ng-mouseleave="event.showDescription=false">

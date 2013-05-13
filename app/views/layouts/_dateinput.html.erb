@@ -1,0 +1,6 @@
+<div class="dateinput">
+  <p><%= field %></p>
+  <input type="text" ng-model="<%= model %>.<%= field.downcase %>" id="input">
+  <input type="button" class="button-date" id="button-plus" ng-click="<%= model %>.<%= field.downcase %> = <%= model %>.<%= field.downcase %> + 1" value="+">
+  <input type="button" class="button-date" id="button-minus" ng-click="<%= model %>.<%= field.downcase %> = <%= model %>.<%= field.downcase %>- 1" value="-">
+</div>

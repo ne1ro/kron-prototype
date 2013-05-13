@@ -8,7 +8,7 @@
   $scope.showAddBox = false;
   $scope.showEditBox = false;
 
-  $scope.addEvent = ->
+  $scope.createEvent = ->
     event = Event.save($scope.newEvent)
     $scope.events.push(event)
     $scope.newEvent = {}
