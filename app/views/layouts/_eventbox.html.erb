@@ -1,6 +1,6 @@
-<div class="eventbox clearfix" id="<%= meth.downcase %>" ng-show="show<%= meth %>Box">
+<div class="eventbox clearfix" id="<%= meth.downcase %>" ng-show="show<%= meth %>">
 
-    <i class="icon-remove-sign" ng-click="show<%= meth %>Box = false"></i>
+    <i class="icon-remove-sign" ng-click="show<%= meth %> = false"></i>
     
     <form ng-submit="<%= action %>Event()">
       <input type="text" placeholder="Header" class="textinput" ng-model="<%= meth.downcase %>Event.header">
