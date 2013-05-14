@@ -3,6 +3,7 @@
  */
 
 // Colors and shades
+/* --------------------------------------------------------------------------------- */
 @white : #FFF;
 @brown : #483C32;
 @orange : #F46F1B;
@@ -12,89 +13,152 @@
 @warm : #CEC7BF;
 
 // Fonts
+/* --------------------------------------------------------------------------------- */
 @ubuntu : Ubuntu, Helvetica, Trebuchet MS, Liberation Sans, sans-serif;
 @mono : Ubuntu Mono, Droid Sans Mono, Menlo, Monaco, Consolas, Terminus, sans-serif;
 
+/* Mixins */
+/* --------------------------------------------------------------------------------- */
 .box-shadow {
   -webkit-box-shadow: 0px 0.25em 0.75em rgba(50, 50, 50, 0.75);
   box-shadow:         0px 0.25em 0.75em rgba(50, 50, 50, 0.75);  
 }
 
+.transition {
+    -moz-transition : all 0.5s ease;
+    -ms-transition : all 0.5s ease;
+    -o-transition : all 0.5s ease;
+  -webkit-transition : all 0.5s ease;
+    transition : all 0.5s ease;
+}
+
+.clearfix {
+  overflow: hidden;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* Tags */
+/* --------------------------------------------------------------------------------- */
 html {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
   height: 100%;
+  margin: 0;
+  min-height: 100%;
   min-width : 62em;
+  padding: 0;
+  width: 100%;
 }
 
 body {
-  top : 0;
-  min-height: 100%;
-  height: 100%;
-  padding: 0;
-  margin : 0;
-  font-family: @ubuntu;
-  color: @black;
   background : @brown url('bg.jpg') no-repeat fixed center top ;
+  color: @black;
+  font-family: @ubuntu;
+  height: 100%;
+  margin : 0;
+  min-height: 100%;
+  padding: 0;
+  top : 0;
 }
 
 h1 {
-  text-align: center;
-  margin: 0.5em 0;
   font-size : 1.5em;
+  margin: 0.5em 0;
+  text-align: center;
 }
 
 nav {
   height: 2.5em;
-  width: 62em;
   margin : 0 auto;
+  width: 62em;
   
   a {
-    text-decoration: none;
     color: @warm;
-    text-transform: uppercase;
     display: block;
     float: left;
-    font-weight: bold;
-    margin: 0.25em 0.25em 0 0.25em;
     font-size: 1.25em;
+    font-weight: bold;
     height: 1.25em;
+    margin: 0.25em 0.25em 0 0.25em;
+    text-decoration: none;
+    .uppercase
   }
   
   a:hover{
-    color: @orange;
+    .transition;
     border-bottom: 0.2em solid @green;
-    -webkit-transition : all 0.5s ease;
-    -moz-transition : all 0.5s ease;
-    -o-transition : all 0.5s ease;
-    -ms-transition : all 0.5s ease;
-    transition : all 0.5s ease;
+    color: @orange;
   }
+}
+
+input {
+  border: none;
+  display: block;
+  font-family : @ubuntu; 
+}
+
+footer {
+  background: @black;
+  border-bottom : 0.5em solid black;
+  color : @warm;
+  font-size: 1em;
+  height: 10.5em;
+  margin : -11em auto;
+  position : relative;
+  width : 62em;
+
+  ul {
+    margin : 0.5em 0;
+  }
+
+  a{
+    color : @warm;
+    display: block;
+    font-size: 1em;
+    margin-bottom : 0.5em;
+    text-decoration: none;
+  }
+
+  a:hover {
+    .transition;
+    color : @orange;
+  }
+}
+
+footer:before {
+  background: url('fence.png') repeat-x;
+  content: '';
+  display: block;
+  height: 8px;
+  left : 0;
+  margin-top : -8px;
+  position: absolute;
+  top : 0;
+  width: 100%;
 }
 
 #nav_wrap {
   .box-shadow;
-  position: fixed;
-  z-index: 100;
-  width : 100%;
   background : @black;
+  position: fixed;
+  width : 100%;
+  z-index: 100;
 }
 
 #content_wrapper {
-  position : relative;
-  padding : 0;
   background : rgba(50, 50, 50, 0.75);
-  width : 62em;
+  height : auto !important;
   margin : 0 auto;
   min-height : 100%;
-  height : auto !important;
+  padding : 0;
+  position : relative;
+  width : 62em;
 }
 
 #content {
-  position : relative;
   padding : 2.5em 0;
+  position : relative;
   a {
     color : @black;
   }
@@ -104,142 +168,85 @@ nav {
   }
 
   a:hover {
+    .transition;
     color : @orange;
-    transition : color 0.5s ease;
   }
 }
 
 #dashside {
-  width : 23em;
   float : right;
   padding : 1em 1em 8.5em 0;
+  width : 23em;
 }
 
 #eventside {
-  width : 36em;
   float : left;
   padding : 0 1em 8.5em 1em;
+  width : 36em;
 }
 
-.avatar {
-  border-radius: 50%;
+.avatar {    
+  background : @white;
   border : 0.25em solid @green;
-  margin: 0em;
+  border-radius: 50%;
   display: block;
-  width: 2.5em!important;
-  height: 2.5em!important;
   float: left;
   font-size : 1em;
+  height: 2.5em!important;
+  margin: 0em;
+  width: 2.5em!important;
   z-index: 101;
   img {
     border-radius: 50%;
-    width: 2.5em!important;
     height: 2.5em!important;
+    width: 2.5em!important;
     z-index: 101;
-  }    
-  background : @white;
+  }
 }
 
 .avatar:hover {
+  .transition;
   border : 0.25em solid @orange;
-  -webkit-transition : border 0.5s ease;
-  -moz-transition : border 0.5s ease;
-  -o-transition : border 0.5s ease;
-  -ms-transition : border 0.5s ease;
-  transition : border 0.5s ease;
   z-index: 101;
 }
 
 p#timer{
-  display: block;
+  color : @warm;
   float: right;
-  font-size: 1.25em;
   font-family: @mono;
-  margin: 0.25em;
+  font-size: 1.25em;
   font-weight: bold;
-  color : @warm;
-}
-
-footer {
-  clear : both;
-  position : relative;
-  height: 10.5em;
-  background: @black;
-  width : 62em;
-  margin : -11em auto;
-  border-bottom : 0.5em solid black;
-  color : @warm;
-  font-size: 1em;
-
-  ul {
-    margin : 0.5em 0;
-  }
-
-  a{
-    display: block;
-    color : @warm;
-    font-size: 1em;
-    margin-bottom : 0.5em;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color : @orange;
-    -webkit-transition : color 0.5s ease;
-    -moz-transition : color 0.5s ease;
-    -o-transition : color 0.5s ease;
-    -ms-transition : color 0.5s ease;
-    transition : color 0.5s ease;
-  }
-}
-
-footer:before {
-  position: absolute;
-  width: 100%;
-  height: 8px;
-  display: block;
-  content: '';
-  background: url('fence.png');
-  background-repeat: repeat-x;
-  top : 0;
-  left : 0;
-  margin-top : -8px;
+  margin: 0.25em;
 }
 
 .column {
-  width : 33%;
   float: left;
+  width : 33%;
 }
 
 .logo {
-  display: block;
-  width : 8em;
-  height: 8em;
-  display: block;
-  margin: 1em;
   float : left;
-}
-
-.uppercase {
-  text-transform: uppercase;
+  height: 8em;
+  margin: 1em;
+  width : 8em;
 }
 
 p.chaser {
   display : block;
   float : left;
+  font-weight : bold;
   margin-right : 2.5em;
   margin-top : 0;
-  font-weight : bold;
-  // font-size : 1.2em;
+  
   i {
-    display : block;
-    width : 0.75em;
-    font-weight : bold;
-    text-decoration: none;
-    margin : 0 0.25em 0 0.25em;
     background : @brown;
     border-radius : 50%;
     color : @white;
+    display : block;
+    font-weight : bold;
+    margin : 0 0.25em 0 0.25em;
+    text-decoration: none;
+    width : 0.75em;
     
   }
   i.icon-angle-left {
@@ -247,49 +254,43 @@ p.chaser {
     padding-left : 0.25em;
   }
    i.icon-angle-right {
-    width : 0.66em;
     float : right;
     padding-left : 0.34em;
+    width : 0.66em;
   }
 
   i:hover {
+    .transition;
     background : @black;
     color : @orange;
-    -webkit-transition : all 0.5s ease;
-    -moz-transition : all 0.5s ease;
-    -o-transition : all 0.5s ease;
-    -ms-transition : all 0.5s ease;
-    transition : all 0.5s ease;
   }
 }
 
 .calendar {
-  width : 100%;
-  display : block;
-  clear : both;
   background : @white;
-  border-spacing : 0;
   border-radius : 0 0 1.25em 1.25em;
-  
+  border-spacing : 0;
+  clear : both;
+  width : 100%;
 
   .row {
-    display : block;
-    width : 100%;
     clear : both;
+    display : block;
     height : 2em;
+    width : 100%;
   }
 
   .row.days {
-    background : @black;
-    font-weight : bold;
-    color : @white;
     .box-shadow;
+    background : @black;
+    color : @white;
+    font-weight : bold;
   }
 
   .day {
-    margin-top : 0.25em;
     display : block;
     float : left;
+    margin-top : 0.25em;
     text-align : center;
     width : 14%;
     
@@ -307,57 +308,54 @@ p.chaser {
   }
   
   .day:hover {
+    .transition;
     background : @orange;
     border-radius : 0.5em;
     color : @white;
-    -webkit-transition : all 0.5s ease;
-    -moz-transition : all 0.5s ease;
-    -o-transition : all 0.5s ease;
-    -ms-transition : all 0.5s ease;
-    transition : all 0.5s ease;
   }  
 }
 
 .event{
-  display : block;
-  width : 100%;
   background : @white;
   border-bottom : 0.25em solid @orange;
   clear : both;
+  display : block;
   font-size : 1em;
   margin : -0.5em 0;
   padding : 0;
   position : relative;
+  width : 100%;
+  
   .time,.header {
     font-weight : bold;
-    margin-top : 0.5em;
     margin-left : 0.5em;
+    margin-top : 0.5em;
   }
 
   p.time {
-    float : left;
     display : block;
-    margin-right : 0.5em;
+    float : left;
     height : 100%;
+    margin-right : 0.5em;
   }
   p.header {
     display : block;
     padding-top : 0.5em;
   }
   .description {
-    padding : 0 1em 0;
     font-size : 0.8em!important;
+    padding : 0 1em 0;
   }
   i.icon-edit, i.icon-trash, i.icon-group {
-    display : block;
     color : @warm + #111;
+    display : block;
+    font-size : 1em;
     position : absolute;
     top : 0.5em;
-    font-size : 1em;
   }
-  i.icon-edit {right : 3.5em}
-  i.icon-trash {right : 0.5em}
-  i.icon-group {right : 2em}
+  i.icon-edit {right : 3.5em;}
+  i.icon-trash {right : 0.5em;}
+  i.icon-group {right : 2em;}
   
 }
 
@@ -366,47 +364,39 @@ p.chaser {
 }
 
 .event:hover {
+  .transition;
   background : @brown;
   border-bottom : 0.25em solid @green;
   color : @white;
-  -webkit-transition : all 0.5s ease;
-  -moz-transition : all 0.5s ease;
-  -o-transition : all 0.5s ease;
-  -ms-transition : all 0.5s ease;
-  transition : all 0.5s ease;
 }
 
 #eventshead {
-  z-index : 100;
   background : @black;
   height : 3em;
   position : relative;
+  z-index : 100;
   
   i.icon-plus-sign, i.icon-group {
     color : @orange;
-    font-size : 1.5em;
     display : block;
+    font-size : 1.5em;
     position : absolute;
-    top : 0.5em;
     right : 0.5em;
+    top : 0.5em;
   }
 
   i.icon-plus-sign:hover, i.icon-group:hover {
+    .transition;
     color : @green;
-    -webkit-transition : color 0.5s ease;
-    -moz-transition : color 0.5s ease;
-    -o-transition : color 0.5s ease;
-    -ms-transition : color 0.5s ease;
-    transition : color 0.5s ease;
   }
 
   i.icon-search {
     color : @warm;
     display : block;
-    position : absolute;
-    top : 0.75em;
     font-size : 1.25em;
     left : 1.2em;
+    position : absolute;
+    top : 0.75em;
   }
 
   i.icon-group {
@@ -414,64 +404,64 @@ p.chaser {
   }
 
   #searchwrapper{
-   padding-top : 0.75em;
-   margin: 0em 7em 1em 1em;
    height : 100%;
+   margin: 0em 7em 1em 1em;
+   padding-top : 0.75em;
     
   }
   input {
-    display : block;
     background : @white;
     border : none;
-    width : 100%;
     border-radius : 0.5em;
+    display : block;
     float : left;
-    height : 1.5em;
     font-family : @ubuntu;
     font-size : 1em;
+    height : 1.5em;
     padding-left : 2em;
     padding-top : 0;
+    width : 100%;
   }
 }
 
 #eventshead:after{
+  background : url('fence_flipped.png');
+  bottom : 0px;
   content : '';
   display : block;
-  width : 100%;
   height : 8px;
-  position : absolute;
-  bottom : 0px;
-  background : url('fence_flipped.png');
   margin-bottom : -8px;
+  position : absolute;
+  width : 100%;
   z-index : 10;
 }
 
 .group {
   background : @white;
-  width : 100%;
-  height : auto;
-  min-height : 6em;
   border-radius : 0 0 1em 1em;
+  height : auto;
   margin : 1em 0;
+  min-height : 6em;
+  width : 100%;
   #header {
+    .box-shadow;
     background : @black;
     color : @white;
     font-size : 1em;
     font-weight : bold;
-    position : relative;
-    padding-top : 0.1em;
     height : 2em;
-    .box-shadow;
+    padding-top : 0.1em;
+    position : relative;
     p {
       margin: 0.25em 0.5em;
       padding : 0;
       text-align : center;
     }
     i.icon-edit, i.icon-trash {
+      color : @warm;
       display : block;
       position : absolute;
       top : 0.5em;
-      color : @warm;
     }
     i.icon-edit {
       right : 2em;
@@ -488,8 +478,8 @@ p.chaser {
 }
 
 ::-webkit-scrollbar {
-    width: 0.5em;
     background : @brown;
+    width: 0.5em;
 }
 
 ::-webkit-scrollbar-track {
@@ -497,142 +487,119 @@ p.chaser {
 }
  
 ::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 0.5em rgba(0,0,0,0.5);
-    background : @orange; 
+    background : @orange;
+    -webkit-box-shadow: inset 0 0 0.5em rgba(0,0,0,0.5); 
 }
 
 .eventbox {
-  position: relative;
-  z-index : 10;
+  .box-shadow;
   background : @black + #111;
-  width : 60em;
-  .box-shadow;  
+  color : @white;  
   padding : 1em;
-  color : @white;
+  position: relative;
+  width : 60em;
+  z-index : 10;
   
   i.icon-remove-sign {
+    color : @red;
+    font-size : 1.5em;
     position : absolute;
     right : 0.5em;
     top : 0.5em;
-    font-size : 1.5em;
-    color : red;
   }
 
   i.icon-remove-sign:hover {
+    .transition;
     color : @orange;
-    -webkit-transition : color 500ms ease;
-    -moz-transition : color 500ms ease;
-    -o-transition : color 500ms ease;
-    -ms-transition : color 500ms ease;
-    transition : color 500ms ease;
   }
 
   input.textinput {
-    width : 22em;
     border-radius : 0.5em 0 0 0.5em;
     float : left;
-    height : 1.5em;
-    font-family : @ubuntu;
     font-size : 1em;
-    padding: 0 1em 0 1em;
+    height : 1.5em;
     margin : 0;
-    border : none;  
+    padding: 0 1em 0 1em;
+    width : 22em;  
   }
 
   textarea {
-    width : 30em;
-    height : 7em;
+    border : none;
+    border-radius : 0.5em;
     display : block;
     float : right;
-    border : none;
     font-family : @ubuntu;
     font-size : 1em;
-    border-radius : 0.5em;
+    height : 7em;
     padding : 0.5em;
+    width : 30em;
   }
 
   input.buttoninput {
-    font-size : 1em;
-    font-family : @ubuntu;
     background : @green;
+    border-radius : 0 0.5em 0.5em 0;
     color : @white;
-    border : none;
     float : left;
+    font-size : 1em;
     height : 1.53em;
     margin-left: -0.2em;
-    border-radius : 0 0.5em 0.5em 0;
 }
 
   .buttoninput:hover {
     background : @green + #333;
-    -webkit-transition : background 0.5s ease;
-    -moz-transition : background 0.5s ease;
-    -o-transition : background 0.5s ease;
-    -ms-transition : background 0.5s ease;
-    transition : background 0.5s ease;
+    
   }
 
   .dateinput {
-    width : 5.25em;
     float : left;
-    position : relative;
     margin-right : 2.25em;
     margin-top : 0.5em;
+    position : relative;
+    width : 5.25em;
     
     p {
       margin : 0 0 0 0.25em;
     }
 
     input#input {
-      width : 2.25em;
+      float : left;
+      font-size : 1em;
       margin-left : 1.25em;
       padding : 0 0.25em 0 0.25em;
-      font-size : 1em;
-      font-family : @ubuntu;
-      display : block;
-      float : left;
-      border : none;
       text-align : right;
+      width : 2.25em;
     }
 
     input.button-date{
-      position : absolute;
-      padding : 0;
-      margin : 0;
-      width : 1.5em;
-      height : 1.5em;
       font-weight : bold;
-      border : none;
-      margin-top : 0.15em;  
+      height : 1.5em;
+      margin : 0;
+      margin-top : 0.15em;
+      padding : 0;
+      position : absolute;
+      width : 1.5em;  
     }
   }
 
   #button-plus {
     background : @green;
+    border-radius : 0 0.5em 0.5em 0;
     color : @white;
     right : 0;
-    border-radius : 0 0.5em 0.5em 0;
   }
 
   #button-minus {
-    background : #F00 - #222;
+    background : @red;
+    border-radius : 0.5em 0 0 0.5em;
     color : @white;
     left : 0;
-    border-radius : 0.5em 0 0 0.5em;
   }
 }
 
-.clearfix {
-  overflow: hidden;
-}
-
-#profileside {
-  height: 15em;
-  display: none;
-}
-
 input.ng-valid:focus, textarea:focus {
-  outline: none;
-  border: none;
   box-shadow : 0 0 1em @green + #777;
-} 
+  outline: none;
+  .transition;
+}
+
+ 
