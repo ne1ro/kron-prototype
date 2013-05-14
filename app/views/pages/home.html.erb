@@ -1,95 +1,19 @@
-<div id="timeside" ng-controller="TimeCtrl">
-  <h1>My time</h1>
-  <div class="padding_wrapper">
-            
-      <p class="chaser" ng-model="current_month"><i class="icon-angle-left" ng-click="decMonth()"></i>{{months[current_month].month}}<i class="icon-angle-right" ng-click="incMonth()"></i></p>
-      <p class="chaser"><i class="icon-angle-left" ng-click="decYear()"></i>{{current_year}}<i class="icon-angle-right" ng-click="incYear()"></i></p>
-      
-      <div class="calendar">
-        <div class="row days">
-            <div class="day">Sun</div>
-            <div class="day">Mon</div>
-            <div class="day">Tue</div>
-            <div class="day">Wed</div>
-            <div class="day active">Thu</div>
-            <div class="day">Fri</div>
-            <div class="day">Sat</div>
+<div ng-controller="EventCtrl">
+    <div id="eventshead" >
+        <div id="searchwrapper">
+            <input type="text" id="search" ng-model="query">   
         </div>
-        <div class="row">
-            <div class="day deactive">31</div>
-            <div class="day">1</div>
-            <div class="day">2</div>
-            <div class="day">3</div>
-            <div class="day">4</div>
-            <div class="day">5</div>
-            <div class="day">6</div>
-        </div>
-        <div class="row">
-            <div class="day">7</div>
-            <div class="day">8</div>
-            <div class="day">9</div>
-            <div class="day">10</div>
-            <div class="day">11</div>
-            <div class="day">12</div>
-            <div class="day">13</div>
-        </div>
-        <div class="row">
-            <div class="day">14</div>
-            <div class="day">15</div>
-            <div class="day">16</div>
-            <div class="day">17</div>
-            <div class="day">18</div>
-            <div class="day">19</div>
-            <div class="day">20</div>
-        </div>
-        <div class="row">
-            <div class="day">21</div>
-            <div class="day">22</div>
-            <div class="day">23</div>
-            <div class="day">24</div>
-            <div class="day active">25</div>
-            <div class="day">26</div>
-            <div class="day">27</div>
-        </div>
-        <div class="row">
-            <div class="day">28</div>
-            <div class="day">29</div>
-            <div class="day">30</div>
-            <div class="day deactive">1</div>
-            <div class="day deactive">2</div>
-            <div class="day deactive">3</div>
-            <div class="day deactive">4</div>
-        </div>
-        <div class="row">
-            <div class="day deactive">5</div>
-            <div class="day deactive">6</div>
-            <div class="day deactive">7</div>
-            <div class="day deactive">8</div>
-            <div class="day deactive">9</div>
-            <div class="day deactive">10</div>
-            <div class="day deactive">11</div>
-        </div>
-      </div>
-  </div>
-  
+        <i class="icon-group"></i>
+        <i class="icon-plus-sign" ng-click="showNewBox = true"></i>
+        <i class="icon-search"></i>    
 </div>
 
-<div id="eventside" ng-controller="EventCtrl">
-  
-  <%= render 'layouts/eventbox', :action => 'create', :description => 'Create', :meth => 'New' %>
+<%= render 'layouts/eventbox', :action => 'create', :description => 'Create', :meth => 'New' %>
+<%= render 'layouts/eventbox', :action => 'update', :description => 'Update', :meth => 'Edit' %>
 
-  <%= render 'layouts/eventbox', :action => 'update', :description => 'Update', :meth => 'Edit' %>
-
-  <h1>My events</h1>
-  <div class="padding_wrapper">
-    <div class="eventshead">
-      <div id="searchwrapper">
-       <input type="text" id="search" ng-model="query">   
-      </div>
-      <i class="icon-group"></i><i class="icon-plus-sign" ng-click="showNewBox = true"></i><i class="icon-search"></i>    
-    </div>
-  
-    <div class="event" ng-repeat="event in events | filter : query" ng-mouseenter="event.showDescription=true" ng-mouseleave="event.showDescription=false">
+<div id="eventside">
+    
+    <div class="event" ng-repeat="event in events | filter : query" ng-mouseenter="event.showDescription=true" ng-mouseleave="event.showDescription=false" ng-class="{'last': $last}">
     <p class="time">{{event.time | date:'H:mm'}}</p>
     <p class="header">{{event.header}}</p>
 
@@ -100,10 +24,78 @@
     </div>
   </div>
 </div>
+<div id="dashside" ng-controller="TimeCtrl">
+            
+      <p class="chaser" ng-model="current_month"><i class="icon-angle-left" ng-click="decMonth()"></i>{{months[current_month].month}}<i class="icon-angle-right" ng-click="incMonth()"></i></p>
+      <p class="chaser"><i class="icon-angle-left" ng-click="decYear()"></i>{{current_year}}<i class="icon-angle-right" ng-click="incYear()"></i></p>
+      
+      <div class="calendar">
+        <div class="row days">
+            <div class="day"><p>Sun</p></div>
+            <div class="day"><p>Mon</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day active"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+        </div>
+        <div class="row">
+            <div class="day deactive"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+        </div>
+        <div class="row">
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+        </div>
+        <div class="row">
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+        </div>
+        <div class="row">
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day active"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+        </div>
+        <div class="row">
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day"><p>Tue</p></div>
+            <div class="day deactive"><p>Tue</p></div>
+            <div class="day deactive"><p>Tue</p></div>
+            <div class="day deactive"><p>Tue</p></div>
+            <div class="day deactive"><p>Tue</p></div>
+        </div>
+        <div class="row">
+            <div class="day deactive"><p>Tue</p></div>
+            <div class="day deactive"><p>Tue</p></div>
+            <div class="day deactive"><p>Tue</p></div>
+            <div class="day deactive"><p>Tue</p></div>
+            <div class="day deactive"><p>Tue</p></div>
+            <div class="day deactive"><p>Tue</p></div>
+            <div class="day deactive"><p>Tue</p></div>
+        </div>
+      </div>
 
-<div id="socialside" ng-controller="GroupCtrl">
-  <h1>My groups</h1>
-  <div class="padding_wrapper">
+  <div id="socialside" ng-controller="GroupCtrl">
     <div class="group" ng-repeat="group in groups">
       <div id="header">
         <p>{{group.name}}</p>
@@ -116,3 +108,6 @@
     </div>
   </div>
 </div>
+
+
+

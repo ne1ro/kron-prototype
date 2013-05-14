@@ -1,7 +1,6 @@
 /*
  *= require font-awesome
  */
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,700);
 
 // Colors and shades
 @white : #FFF;
@@ -16,6 +15,10 @@
 @ubuntu : Ubuntu, Helvetica, Trebuchet MS, Liberation Sans, sans-serif;
 @mono : Ubuntu Mono, Droid Sans Mono, Menlo, Monaco, Consolas, Terminus, sans-serif;
 
+.box-shadow {
+  -webkit-box-shadow: 0px 0.25em 0.75em rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 0.25em 0.75em rgba(50, 50, 50, 0.75);  
+}
 
 html {
   padding: 0;
@@ -23,7 +26,7 @@ html {
   width: 100%;
   min-height: 100%;
   height: 100%;
-  min-width : 60em;
+  min-width : 62em;
 }
 
 body {
@@ -32,40 +35,66 @@ body {
   height: 100%;
   padding: 0;
   margin : 0;
-  font-family: Raleway, @ubuntu;
+  font-family: @ubuntu;
   color: @black;
-  background: @warm;
+  background : @brown url('bg.jpg') no-repeat fixed center top ;
 }
 
 h1 {
   text-align: center;
-  margin: 0;
-  font-size : 2em;
+  margin: 0.5em 0;
+  font-size : 1.5em;
 }
 
 nav {
-  background: @brown;
+  height: 2.5em;
+  width: 62em;
+  margin : 0 auto;
+  
+  a {
+    text-decoration: none;
+    color: @warm;
+    text-transform: uppercase;
+    display: block;
+    float: left;
+    font-weight: bold;
+    margin: 0.25em 0.25em 0 0.25em;
+    font-size: 1.25em;
+    height: 1.25em;
+  }
+  
+  a:hover{
+    color: @orange;
+    border-bottom: 0.2em solid @green;
+    -webkit-transition : all 0.5s ease;
+    -moz-transition : all 0.5s ease;
+    -o-transition : all 0.5s ease;
+    -ms-transition : all 0.5s ease;
+    transition : all 0.5s ease;
+  }
+}
+
+#nav_wrap {
+  .box-shadow;
   position: fixed;
-  height: 3em;
-  border-bottom: 0.25em solid @orange;
-  width: 100%;
-  left: 0;
-  top: 0;
   z-index: 100;
-  margin: 0 auto;
+  width : 100%;
+  background : @black;
 }
 
-.page {
-  width: 100%;
-  min-height: 100%;
-  top : 0;
-}
-
-.content {
-  height: auto;
-  min-height: 300px;
-  padding: 3.5em 0;
+#content_wrapper {
   position : relative;
+  padding : 0;
+  background : rgba(50, 50, 50, 0.75);
+  width : 62em;
+  margin : 0 auto;
+  min-height : 100%;
+  height : auto !important;
+}
+
+#content {
+  position : relative;
+  padding : 2.5em 0;
   a {
     color : @black;
   }
@@ -80,51 +109,21 @@ nav {
   }
 }
 
-#timeside {
-  min-width : 30em;
-  float : left;
+#dashside {
+  width : 23em;
+  float : right;
+  padding : 1em 1em 8.5em 0;
 }
 
 #eventside {
-  width : 60em;
-  float: left;
-}
-
-#socialside {
-  min-width : 29em;
-  float: left;
-}
-
-nav a{
-  text-decoration: none;
-  color: @white;
-  text-transform: uppercase;
-  display: block;
-  float: left;
-  font-weight: bold;
-  margin: 0.5em 0.5em 0 0.5em;
-  font-size: 1.5em;
-  height: 1.5em;
-  border-bottom : 0.2em solid @orange;
-}
-
-nav a.first {
-  margin-left: 2.5em;
-}
-
-nav a:hover{
-  color: @orange;
-  border-bottom: 0.2em solid @green;
-  -webkit-transition : all 0.5s ease;
-  -moz-transition : all 0.5s ease;
-  -o-transition : all 0.5s ease;
-  -ms-transition : all 0.5s ease;
-  transition : all 0.5s ease;
+  width : 36em;
+  float : left;
+  padding : 0 1em 8.5em 1em;
 }
 
 .avatar {
   border-radius: 50%;
-  border : 0.25em solid @green;
+  /*border : 0.25em solid @green;*/
   margin: 0em;
   display: block;
   width: 2.5em!important;
@@ -162,28 +161,26 @@ p#timer{
   width: auto;
 }
 
-#footer {
+footer {
   clear : both;
   position : relative;
-  height: 10em;
+  height: 10.5em;
   background: @black;
-  margin-top : -10em;
-
-  p {
-    font-size: 1.25em;
-    color : @warm;
-  }
+  width : 62em;
+  margin : -11em auto;
+  border-bottom : 0.5em solid black;
+  color : @warm;
+  font-size: 1em;
 
   ul {
-    list-style-type: disc;
     margin : 0.5em 0;
   }
 
   a{
     display: block;
     color : @warm;
-    font-size: 1.25em;
-    margin-bottom : 0.15em;
+    font-size: 1em;
+    margin-bottom : 0.5em;
     text-decoration: none;
   }
 
@@ -197,7 +194,7 @@ p#timer{
   }
 }
 
-#footer:before {
+footer:before {
   position: absolute;
   width: 100%;
   height: 8px;
@@ -274,6 +271,8 @@ p.chaser {
   background : @white;
   border-spacing : 0;
   border-radius : 0 0 1.25em 1.25em;
+  
+
   .row {
     display : block;
     width : 100%;
@@ -285,8 +284,7 @@ p.chaser {
     background : @black;
     font-weight : bold;
     color : @white;
-    -webkit-box-shadow: 0 0.25em 0.125em -0.125em black;
-    box-shadow: 0 0.25em 0.125em -0.125em black;
+    .box-shadow;
   }
 
   .day {
@@ -295,6 +293,11 @@ p.chaser {
     float : left;
     text-align : center;
     width : 14%;
+    
+    p {
+      margin : 0;
+    }
+
   }
 
   .day.active {
@@ -316,19 +319,13 @@ p.chaser {
   }  
 }
 
-.padding_wrapper{
-  padding : 1em;
-  position : relative;
-  margin : 0 auto;
-}
-
 .event{
   display : block;
   width : 100%;
   background : @white;
   border-bottom : 0.25em solid @orange;
   clear : both;
-  font-size : 1.25em;
+  font-size : 1em;
   margin : -0.5em 0;
   padding : 0;
   position : relative;
@@ -349,8 +346,7 @@ p.chaser {
     padding-top : 0.5em;
   }
   .description {
-    padding-left : 3em;
-    padding-right : 1em;
+    padding : 0 1em 0;
     font-size : 0.8em!important;
   }
   i.icon-edit, i.icon-trash, i.icon-group {
@@ -363,6 +359,11 @@ p.chaser {
   i.icon-edit {right : 3.5em}
   i.icon-trash {right : 0.5em}
   i.icon-group {right : 2em}
+  
+}
+
+.event.last {
+  border-radius : 0 0 0.25em 0.25em;
 }
 
 .event:hover {
@@ -376,14 +377,15 @@ p.chaser {
   transition : all 0.5s ease;
 }
 
-.eventshead {
+#eventshead {
+  z-index : 100;
   background : @black;
-  height : 4em;
+  height : 3em;
   position : relative;
   
   i.icon-plus-sign, i.icon-group {
     color : @orange;
-    font-size : 2em;
+    font-size : 1.5em;
     display : block;
     position : absolute;
     top : 0.5em;
@@ -403,17 +405,18 @@ p.chaser {
     color : @warm;
     display : block;
     position : absolute;
-    top : 1.15em;
+    top : 0.75em;
     font-size : 1.25em;
     left : 1.2em;
   }
 
   i.icon-group {
-    right : 2em
+    right : 2em;
   }
+
   #searchwrapper{
-   padding-top : 1em;
-   margin: 0em 9em 1em 1em;
+   padding-top : 0.75em;
+   margin: 0em 7em 1em 1em;
    height : 100%;
     
   }
@@ -424,7 +427,7 @@ p.chaser {
     width : 100%;
     border-radius : 0.5em;
     float : left;
-    height : 2em;
+    height : 1.5em;
     font-family : @ubuntu;
     font-size : 1em;
     padding-left : 2em;
@@ -432,7 +435,7 @@ p.chaser {
   }
 }
 
-.eventshead:after{
+#eventshead:after{
   content : '';
   display : block;
   width : 100%;
@@ -448,19 +451,18 @@ p.chaser {
   background : @white;
   width : 100%;
   height : auto;
-  min-height : 14em;
+  min-height : 6em;
   border-radius : 0 0 1em 1em;
-  margin-bottom : 2.5em;
+  margin : 1em 0;
   #header {
     background : @black;
     color : @white;
-    font-size : 1.25em;
+    font-size : 1em;
     font-weight : bold;
     position : relative;
     padding-top : 0.1em;
     height : 2em;
-    -webkit-box-shadow: 0 0.25em 0.125em -0.125em black;
-    box-shadow: 0 0.25em 0.125em -0.125em black;
+    .box-shadow;
     p {
       margin: 0.25em 0.5em;
       padding : 0;
@@ -501,28 +503,24 @@ p.chaser {
 }
 
 .eventbox {
-  background : @brown;
-  position : absolute;
-  z-index : 100;
-  left : 50%;
-  top : 3em;
-  width : 58em;
-  margin-left : -30em;
-  border : 0.25em solid @orange;
-  border-radius : 0 0 1.5em 1.5em;
-  padding : 0 1em;
+  position: relative;
+  z-index : 10;
+  background : @black + #111;
+  width : 60em;
+  .box-shadow;  
+  padding : 1em;
   color : @white;
   
-  i.icon-remove {
+  i.icon-remove-sign {
     position : absolute;
     right : 0.5em;
     top : 0.5em;
-    font-size : 1.25em;
-    color : @orange;
+    font-size : 1.5em;
+    color : red;
   }
 
-  i.icon-remove:hover {
-    color : red;
+  i.icon-remove-sign:hover {
+    color : @orange;
     -webkit-transition : color 500ms ease;
     -moz-transition : color 500ms ease;
     -o-transition : color 500ms ease;
@@ -531,32 +529,27 @@ p.chaser {
   }
 
   input.textinput {
-    width : 20em;
-    display : block;
+    width : 22em;
     border-radius : 0.5em 0 0 0.5em;
     float : left;
     height : 1.5em;
     font-family : @ubuntu;
     font-size : 1em;
-    padding-left : 1em;
-    padding-right : 1em;
-    padding-top : 0;
-    margin : 1em 0 1em 0;
+    padding: 0 1em 0 1em;
+    margin : 0;
     border : none;  
   }
 
   textarea {
     width : 30em;
-    height : 8em;
+    height : 7em;
     display : block;
     float : right;
     border : none;
     font-family : @ubuntu;
     font-size : 1em;
     border-radius : 0.5em;
-    margin : 1em 0 1em 0;
     padding : 0.5em;
-    
   }
 
   input.buttoninput {
@@ -564,12 +557,11 @@ p.chaser {
     font-family : @ubuntu;
     background : @green;
     color : @white;
-    display : block; 
     border : none;
     float : left;
-    height : 1.55em;
+    height : 1.53em;
+    margin-left: -0.2em;
     border-radius : 0 0.5em 0.5em 0;
-    margin : 1em 0 1em 0;
 }
 
   .buttoninput:hover {
@@ -585,13 +577,13 @@ p.chaser {
     width : 5.25em;
     float : left;
     position : relative;
-    margin-right : 2.5em;
-    margin-bottom : 1em;
+    margin-right : 2.25em;
+    margin-top : 0.5em;
     
     p {
-      font-weight : bold;
       margin : 0 0 0 0.25em;
     }
+
     input#input {
       width : 2.25em;
       margin-left : 1.25em;
@@ -631,3 +623,17 @@ p.chaser {
   }
 }
 
+.clearfix {
+  overflow: hidden;
+}
+
+#profileside {
+  height: 15em;
+  display: none;
+}
+
+input.ng-valid:focus, textarea:focus {
+  outline: none;
+  border: none;
+  box-shadow : 0 0 1em @green + #777;
+} 
