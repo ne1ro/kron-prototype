@@ -40,6 +40,11 @@
   text-transform: uppercase;
 }
 
+.side-shadow {
+  -webkit-box-shadow: 0.4em 0 0.6em -0.4em #000, -0.4em 0 0.6em -0.4em #000;
+  box-shadow: 0.4em 0 0.6em -0.4em #000, -0.4em 0 0.6em -0.4em #000;
+}
+
 /* Tags */
 /* --------------------------------------------------------------------------------- */
 html {
@@ -100,13 +105,13 @@ input {
 
 footer {
   background: @black;
-  border-bottom : 0.5em solid black;
   color : @warm;
   font-size: 1em;
-  height: 10.5em;
+  height: 11em;
   margin : -11em auto;
   position : relative;
   width : 62em;
+  .side-shadow;
 
   ul {
     margin : 0.5em 0;
@@ -159,6 +164,7 @@ footer:before {
 #content {
   padding : 2.5em 0;
   position : relative;
+  .side-shadow;
   a {
     color : @black;
   }
@@ -181,7 +187,7 @@ footer:before {
 
 #eventside {
   float : left;
-  padding : 0 1em 8.5em 1em;
+  padding : 0 1em 8.75em 1em;
   width : 36em;
 }
 
