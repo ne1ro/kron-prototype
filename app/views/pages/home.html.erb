@@ -29,71 +29,7 @@
       <p class="chaser" ng-model="current_month"><i class="icon-angle-left" ng-click="decMonth()"></i>{{months[current_month].month}}<i class="icon-angle-right" ng-click="incMonth()"></i></p>
       <p class="chaser"><i class="icon-angle-left" ng-click="decYear()"></i>{{current_year}}<i class="icon-angle-right" ng-click="incYear()"></i></p>
       
-      <div class="calendar">
-        <div class="row days">
-            <div class="day"><p>Sun</p></div>
-            <div class="day"><p>Mon</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day active"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day active"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-        </div>
-      </div>
+      <%= render 'layouts/calendar' %>
 
   <div id="socialside" ng-controller="GroupCtrl">
     <div class="group" ng-repeat="group in groups">
