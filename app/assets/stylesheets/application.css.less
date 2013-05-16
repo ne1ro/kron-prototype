@@ -181,7 +181,7 @@ footer:before {
 
 #dashside {
   float : right;
-  padding : 1em 1em 8.5em 0;
+  padding : 0em 1em 8.5em 0;
   width : 23em;
 }
 
@@ -239,18 +239,16 @@ p#timer{
 
 p.chaser {
   display : block;
-  float : left;
+  float : right;
   font-weight : bold;
-  margin-right : 2.5em;
-  margin-top : 0;
-  
+  margin : 0em 0.5em 0 0;
   i {
     background : @brown;
     border-radius : 50%;
     color : @white;
     display : block;
     font-weight : bold;
-    margin : 0 0.25em 0 0.25em;
+    margin : 0.25em 0.25em 0 0.25em;
     text-decoration: none;
     width : 0.75em;
     
@@ -278,6 +276,8 @@ p.chaser {
   border-spacing : 0;
   clear : both;
   width : 100%;
+  margin-top : 1em;
+  .clearfix;
 
   .row {
     clear : both;
@@ -285,6 +285,29 @@ p.chaser {
     height : 2em;
     width : 100%;
   }
+
+  .row#chasers {
+    background : @black;
+    color : @white;
+    font-weight: bold;
+    padding-top : 0.5em;
+    box-shadow : none;
+    
+    a {
+      text-decoration: none;
+      color : @white;
+      background : @brown;
+      border-radius : 0.5em;
+      float: left;
+      margin : 0 0 0 0.5em;
+      padding : 0.125em 0.5em 0.125em 0.5em;
+    }
+
+    a:hover {
+      background : @orange;
+      .transition;
+    }  
+  } 
 
   .row.days {
     .box-shadow;
@@ -296,7 +319,7 @@ p.chaser {
   .day {
     display : block;
     float : left;
-    margin-top : 0.25em;
+    margin : 0.25em 0 0.25em 0;
     text-align : center;
     width : 14%;
     
@@ -442,14 +465,7 @@ p.chaser {
   z-index : 10;
 }
 
-.group {
-  background : @white;
-  border-radius : 0 0 1em 1em;
-  height : auto;
-  margin : 1em 0;
-  min-height : 6em;
-  width : 100%;
-  #header {
+#header {
     .box-shadow;
     background : @black;
     color : @white;
@@ -476,6 +492,14 @@ p.chaser {
       right : 0.5em;
     }
   }
+
+.group {
+  background : @white;
+  border-radius : 0 0 1em 1em;
+  height : auto;
+  margin : 1em 0;
+  min-height : 6em;
+  width : 100%;
 
 .avatar {
   margin : 0.75em 0.5em 0;

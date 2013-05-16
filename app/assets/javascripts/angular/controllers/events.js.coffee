@@ -2,7 +2,7 @@
 # Resource
 
 # Events controller
-@EventCtrl = ["$scope", "$filter", "Event", ($scope, $filter, Event) ->
+@EventCtrl = ["$scope", "$filter", "Event", "Calendar", ($scope, $filter, Event, Calendar) ->
   $scope.events = Event.query()
   $scope.data = new Date()
 

@@ -1,61 +1,17 @@
 <div class="calendar">
+    <div class="row" id="chasers">
+      <a href="" ng-click="setToday()">Today</a>
+      <p class="chaser" ng-model="current_year"><i class="icon-angle-left" ng-click="decYear()"></i>{{current_year}}<i class="icon-angle-right" ng-click="incYear()"></i></p>
+      <p class="chaser" ng-model="current_month"><i class="icon-angle-left" ng-click="decMonth()"></i>{{time | date : 'MMMM'}}<i class="icon-angle-right" ng-click="incMonth()"></i></p>
+    </div>
         <div class="row days">
-            <div class="day" ng-repeat="wday in wdays" ng-class="{active: $index == now.getDay()}">
+            <div class="day" ng-repeat="wday in wdays" ng-class="{active: $index == now.getDay()}" ng-model="calendar.wDay" ng-mouseenter="calendar.wDay = $index" ng-mouseleave="calendar.wDay = null">
                 <p>{{wday.substring(0,3)}}</p>
             </div>
         </div>
-        <div class="row">
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day active"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-        </div>
-        <div class="row">
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-            <div class="day deactive"><p>Tue</p></div>
-        </div>
+        
+            <div class="day deactive" ng-repeat="day in prevDays"><p>{{day}}</p></div>
+            <div class="day" ng-repeat="day in days" ng-class="{active: $index+1 == now.getDate()}" ng-mouseenter="current_date = $index+1"><p>{{day}}</p></div>
+            <div class="day deactive" ng-repeat="day in nextDays"><p>{{day}}</p></div>
+        
       </div>

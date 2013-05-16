@@ -1,7 +1,7 @@
 <div ng-controller="EventCtrl">
     <div id="eventshead" >
         <div id="searchwrapper">
-            <input type="text" id="search" ng-model="query">   
+            <input type="text" id="search" ng-model="searchquery">   
         </div>
         <i class="icon-group"></i>
         <i class="icon-plus-sign" ng-click="showAddBox()"></i>
@@ -13,7 +13,8 @@
 
 <div id="eventside">
     
-    <div class="event" ng-repeat="event in events | filter : query" ng-mouseenter="event.showDescription=true" ng-mouseleave="event.showDescription=false" ng-class="{'last': $last}">
+    <div class="event" ng-repeat="event in events | filter : searchquery | filter : calendarWDay" ng-mouseenter="event.showDescription=true" ng-mouseleave="event.showDescription=false" ng-class="{'last': $last}">
+                {{Calendar.wDay}}
     <p class="time">{{event.time | date:'H:mm'}}</p>
     <p class="header">{{event.header}}</p>
 
@@ -25,10 +26,7 @@
   </div>
 </div>
 <div id="dashside" ng-controller="TimeCtrl">
-            
-      <p class="chaser" ng-model="current_month"><i class="icon-angle-left" ng-click="decMonth()"></i>{{months[current_month].month}}<i class="icon-angle-right" ng-click="incMonth()"></i></p>
-      <p class="chaser"><i class="icon-angle-left" ng-click="decYear()"></i>{{current_year}}<i class="icon-angle-right" ng-click="incYear()"></i></p>
-      
+               
       <%= render 'layouts/calendar' %>
 
   <div id="socialside" ng-controller="GroupCtrl">
