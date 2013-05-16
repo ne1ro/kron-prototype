@@ -2,13 +2,13 @@
 @TimeCtrl = ($scope, $timeout, Calendar)->
 
   # Declare months and week days
-  
   $scope.wdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
   # Get current date
   $scope.getNow = ->
     $scope.now = new Date()
     $timeout($scope.getNow,1000)
+    $scope.isScroll = if document.height > window.innerHeight then true else false
 
   $timeout($scope.getNow,1000)
   
