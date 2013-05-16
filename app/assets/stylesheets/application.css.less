@@ -45,6 +45,20 @@
   box-shadow: 0.4em 0 0.6em -0.4em #000, -0.4em 0 0.6em -0.4em #000;
 }
 
+.search {
+    background : @white;
+    border : none;
+    border-radius : 0.5em;
+    display : block;
+    float : left;
+    font-family : @ubuntu;
+    font-size : 1em;
+    height : 1.5em;
+    padding-left : 2em;
+    padding-top : 0;
+    width : 100%;
+}
+
 /* Tags */
 /* --------------------------------------------------------------------------------- */
 html {
@@ -181,7 +195,7 @@ footer:before {
 
 #dashside {
   float : right;
-  padding : 0em 1em 8.5em 0;
+  padding : 0em 1em 0 0;
   width : 23em;
 }
 
@@ -192,25 +206,22 @@ footer:before {
 }
 
 .avatar {    
-  background : @white;
-  border : 0.25em solid @green;
-  border-radius: 50%;
-  display: block;
   float: left;
   font-size : 1em;
   height: 2.5em!important;
   margin: 0em;
-  width: 2.5em!important;
-  z-index: 101;
+  
   img {
     border-radius: 50%;
     height: 2.5em!important;
     width: 2.5em!important;
     z-index: 101;
+    border : 0.25em solid @green;
+    border-radius: 50%;
   }
 }
 
-.avatar:hover {
+.avatar img:hover {
   .transition;
   border : 0.25em solid @orange;
   z-index: 101;
@@ -438,19 +449,6 @@ p.chaser {
    padding-top : 0.75em;
     
   }
-  input {
-    background : @white;
-    border : none;
-    border-radius : 0.5em;
-    display : block;
-    float : left;
-    font-family : @ubuntu;
-    font-size : 1em;
-    height : 1.5em;
-    padding-left : 2em;
-    padding-top : 0;
-    width : 100%;
-  }
 }
 
 #eventshead:after{
@@ -630,4 +628,84 @@ input.ng-valid:focus, textarea:focus {
   box-shadow : 0 0 1em @green + #777;
   outline: none;
   .transition;
+}
+
+#userprofile {
+  background: @black top center padding-box;
+  color: @white;
+  border-radius : 0 0 1em 1em;
+  #profile {
+    padding-bottom : 0.25em;
+    background : url('profilebg.png');
+    
+  }
+
+  h1 {
+    margin : 0;
+    padding : 0.25em 0 0 0;
+    font-size : 1.5em;
+    text-shadow: -0.05em 0 @black, 0 0.05em @black, 0.05em 0 @black, 0 -0.05em @black;
+  }
+
+  h2 {
+    margin : 0;
+    padding : 0.5em 0 0 0;
+    font-size : 1.2em;
+    text-align : center;
+    text-shadow: -0.05em 0 @black, 0 0.05em @black, 0.05em 0 @black, 0 -0.05em @black;
+  }
+
+  .avatar {
+    width : 5.0em!important;
+    height: 5.0em!important;
+    clear: both;
+    float : none;
+    margin : 0 auto;
+    display: block;
+    
+    img {
+      width : 5.0em!important;
+      height: 5.0em!important;
+    }
+  }
+
+  p {
+    margin : 0 1em;
+    text-align : center;
+    text-shadow: -0.0125em 0 @black, 0 0.0125em @black, 0.0125em 0 @black, 0 -0.0125em @black;
+  }
+
+  #buttons {
+    border-top : @black solid 0.125em;
+    margin-top : 0.25em;
+    border-radius : 0 0 1em 1em;
+    background : @white;
+    color : @black;
+    text-align: center;
+    .clearfix;
+    
+    a {
+    float : left;
+    width : 7.575em;
+    text-decoration: none;
+    height : 2.75em;
+    border-right : 0.125em solid #ddd;
+    padding : 0;
+    margin: 0;
+    }
+    p {
+      text-shadow : none;
+    }
+    
+    a#last {
+      border-right : none;
+    }
+
+    a:hover {
+      background : @orange;
+      color : @white;
+      border-right : 0.125em solid @green;
+    } 
+  }
+  
 }

@@ -1,7 +1,7 @@
 <div ng-controller="EventCtrl">
     <div id="eventshead" >
         <div id="searchwrapper">
-            <input type="text" id="search" ng-model="searchquery">   
+            <input type="text" class="search" ng-model="searchquery" placeholder="Filter and search">   
         </div>
         <i class="icon-group"></i>
         <i class="icon-plus-sign" ng-click="showAddBox()"></i>
@@ -26,6 +26,34 @@
   </div>
 </div>
 <div id="dashside" ng-controller="TimeCtrl">
+
+    <div id="userprofile">
+      <div id="profile">
+        <h1>Aleksey Kuznetsov</h1>
+        <a href="/users/ne1ro" class="avatar">
+          <%= image_tag('ne1ro.png') %>
+        </a>
+        <h2>@ne1ro</h2>
+        <p>Web-developer, creator of the Kron Network</p>
+      </div>
+      <div id="buttons">
+          <a href="/users/ne1ro/" class="profile-button">
+          <p>Full</p>
+          <p>Profile</p>
+        </a>
+        <a href="/users/ne1ro/following" class="profile-button">
+          <p><b>0</b></p>
+          <p>Following</p>
+        </a>
+        <a href="/users/ne1ro/followers" class="profile-button" id="last">
+          <p><b>0</b></p>
+          <p>Followers</p>
+        </a>
+        
+      </div> 
+      
+   
+    </div>
                
       <%= render 'layouts/calendar' %>
 
@@ -36,7 +64,9 @@
         <i class="icon-edit"></i>
         <i class="icon-trash"></i>
         <div id="users" ng-repeat="user in group.users">
-          <a href="users/{{user}}" class="avatar"><%= image_tag('anon.png') %></a>          
+          <a href="users/{{user}}" class="avatar"><%= image_tag('anon.png') %>
+          </a>
+
         </div>  
       </div>    
     </div>
