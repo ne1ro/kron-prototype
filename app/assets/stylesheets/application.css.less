@@ -210,12 +210,21 @@ footer:before {
     
     p {
       font-size : 1.25em;
-      font-weight: bold;
       text-align: center;
       margin : 0;
-      display: block;
       height : 4.16%;
       border-bottom : 0.25em solid @red + #444;
+      background : none;
+    }
+
+    p:hover {
+      background : @green;
+      border-bottom : 0.25em solid @orange;
+      .transition;
+    }
+
+    p.last {
+      border : none;
     }
 
   }

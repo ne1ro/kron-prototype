@@ -17,3 +17,4 @@ app.directive "event", ->
         $(element).children('p.description').slideDown 500
     $(element).mouseleave ->
       $(element).children('.description').slideUp 500
+

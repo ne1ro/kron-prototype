@@ -7,8 +7,8 @@ $(document).ready ->
   $('#timeline').click ->
     if $('#timeline #times').is(':hidden')
       $('#eventside').animate 
-        width : '33em'
         padding : '0 1em 0 4em'
+        width : '33em'
       , 500
       $(@).animate
         width : '4em'
