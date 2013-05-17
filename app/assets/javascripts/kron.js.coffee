@@ -3,13 +3,15 @@ $(document).ready ->
 
   # Fix timeline
   $('#timeline').css "height", $(window).height() - $('footer').height() - $('#nav_wrap').height()
+  
   $('#timeline').click ->
     if $('#timeline #times').is(':hidden')
-      $(@).animate
-        width : '4em'
-      , 500
       $('#eventside').animate 
         width : '33em'
+        padding : '0 1em 0 4em'
+      , 500
+      $(@).animate
+        width : '4em'
       , 500
 
       setTimeout (->
@@ -18,13 +20,13 @@ $(document).ready ->
       
     else
       $('#timeline #times').css "display", "none"
+      $('#eventside').animate 
+        width : '36em'
+        padding : '0 1em 0 1em'
+      , 500
       $(@).animate
         width : '1em'
       , 500
-      $('#eventside').animate 
-        width : '36em'
-      , 500
-
 
   # Scrolling 
   $(window).scroll ->
