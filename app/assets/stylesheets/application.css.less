@@ -87,6 +87,10 @@ h1 {
   text-align: center;
 }
 
+p {
+  word-break : break-all;
+}
+
 nav {
   height: 2.5em;
   margin : 0 auto;
@@ -176,7 +180,7 @@ footer:before {
 }
 
 #content {
-  padding : 2.5em 0;
+  padding : 2.5em 0 11em 0;
   position : relative;
   .side-shadow;
   a {
@@ -193,15 +197,39 @@ footer:before {
   }
 }
 
+#timeline {
+  float: left;
+  width: 1em;
+  background : @red;
+  height: 100%;
+  
+  #times {
+    display: none;
+    min-height : 36em;
+    color : @white;
+    
+    p {
+      font-size : 1.25em;
+      font-weight: bold;
+      text-align: center;
+      margin : 0;
+      display: block;
+      height : 4.16%;
+      border-bottom : 0.25em solid @red + #444;
+    }
+
+  }
+}
+
 #dashside {
   float : right;
-  padding : 0em 1em 8.5em 0;
+  padding : 0em 1em 0 0;
   width : 23em;
 }
 
 #eventside {
   float : left;
-  padding : 0 1em 8.5em 1em;
+  padding : 0 1em 0 0em;
   width : 36em;
 }
 
@@ -370,6 +398,10 @@ p.chaser {
     font-weight : bold;
     margin-left : 0.5em;
     margin-top : 0.5em;
+  }
+
+  .header {
+    margin-right: 5.0em;
   }
 
   p.time {
