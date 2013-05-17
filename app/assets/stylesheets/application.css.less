@@ -385,6 +385,7 @@ p.chaser {
   .description {
     font-size : 0.8em!important;
     padding : 0 1em 0;
+    display: none;
   }
   i.icon-edit, i.icon-trash, i.icon-group {
     color : @warm + #111;
@@ -520,12 +521,12 @@ p.chaser {
 }
 
 .eventbox {
+  display: none;
   .box-shadow;
   background : @black + #111;
   color : @white;  
   padding : 1em;
   position: relative;
-  width : 60em;
   z-index : 10;
   
   i.icon-remove-sign {
@@ -548,19 +549,19 @@ p.chaser {
     height : 1.5em;
     margin : 0;
     padding: 0 1em 0 1em;
-    width : 22em;  
+    width : 28em;  
   }
 
   textarea {
     border : none;
     border-radius : 0.5em;
-    display : block;
-    float : right;
+    clear: both;
     font-family : @ubuntu;
     font-size : 1em;
     height : 7em;
+    margin: 1.0em 0 0 0;
     padding : 0.5em;
-    width : 30em;
+    width : 33em;
   }
 
   input.buttoninput {
@@ -580,8 +581,7 @@ p.chaser {
 
   .dateinput {
     float : left;
-    margin-right : 2.25em;
-    margin-top : 0.5em;
+    margin : 0.5em 1.55em 0 0;
     position : relative;
     width : 5.25em;
     

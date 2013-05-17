@@ -1,12 +1,10 @@
-<div class="eventbox clearfix" id="<%= meth.downcase %>" ng-show="show<%= meth %>">
-
-    <i class="icon-remove-sign" ng-click="show<%= meth %> = false"></i>
+<div class="eventbox clearfix" id="<%= meth.downcase %>">
     
     <form ng-submit="<%= action %>Event()">
       <input type="text" placeholder="Header" class="textinput" ng-model="<%= meth.downcase %>Event.header">
       <input type="submit" value="<%= description %>" class="buttoninput">
       <textarea placeholder="Description" ng-model="<%= meth.downcase %>Event.description"></textarea>
-      <% ['Year', 'Month', 'Day', 'Hour', 'Minute', 'Timezone'].each do |field| %>
+      <% ['Year', 'Month', 'Day', 'Hour', 'Minute'].each do |field| %>
         <%= render 'layouts/dateinput', model:  meth.downcase+'Event' , field: field %>
       <% end %>
     </form>

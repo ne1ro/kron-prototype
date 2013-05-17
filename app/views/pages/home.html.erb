@@ -4,19 +4,19 @@
             <input type="text" class="search" ng-model="searchquery" placeholder="Filter and search">   
         </div>
         <i class="icon-group"></i>
-        <i class="icon-plus-sign" ng-click="showAddBox()"></i>
+        <i class="icon-plus-sign"></i>
         <i class="icon-search"></i>    
     </div>
 
     <%= render 'layouts/eventbox', :action => 'create', :description => 'Create', :meth => 'New' %>
     <%= render 'layouts/eventbox', :action => 'update', :description => 'Update', :meth => 'Edit' %>
 
-    <div class="event" ng-repeat="event in events | filter : searchquery | filter : calendarWDay" ng-mouseenter="event.showDescription=true" ng-mouseleave="event.showDescription=false" ng-class="{'last': $last}">
+    <div class="event" event ng-repeat="event in events | filter : searchquery | filter : calendarWDay" ng-class="{'last': $last}">
                 {{Calendar.wDay}}
     <p class="time">{{event.time | date:'H:mm'}}</p>
     <p class="header">{{event.header}}</p>
 
-    <p class="description" ng-show="event.showDescription">{{event.description}}</p>
+    <p class="description">{{event.description}}</p>
       <i class="icon-edit" ng-click="showEvent(event, $index)"></i>
       <i class="icon-trash" ng-click="deleteEvent(event, $index)"></i>
       <i class="icon-group"></i>     
