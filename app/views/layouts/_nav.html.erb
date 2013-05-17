@@ -1,7 +1,7 @@
 <div id="nav_wrap" ng-controller="TimeCtrl"> 
  <nav>
-  
-  <% if current_page?(root_url) %>
+
+  <% if !current_page?(root_url) %>
     <%= link_to root_url, title: 'Home' do %>
       <a href="/" title="Home"><i class="icon-home"></i></a>
     <% end  %>
