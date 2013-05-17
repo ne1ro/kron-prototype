@@ -21,4 +21,5 @@
   $scope.deleteEvent = (event, $index) ->
     Event.delete(id : event._id)
     $scope.events.splice($index,1)
+
 ]    

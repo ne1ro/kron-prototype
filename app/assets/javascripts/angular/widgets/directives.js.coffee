@@ -18,3 +18,16 @@ app.directive "event", ->
     $(element).mouseleave ->
       $(element).children('.description').slideUp 500
 
+
+# Date filter
+app.directive "timeFilter", (dateFilter) ->
+  require: "ngModel"
+  link: (scope, element, attr, ctrl) ->
+    format = attr.timeFilter
+    ctrl.$parsers.push (data) ->
+      data
+
+    ctrl.$formatters.push (data) ->
+      dateFilter(data, format)
+   
+
