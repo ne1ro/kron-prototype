@@ -7,11 +7,10 @@
 <div id="eventside"  ng-controller="EventCtrl">
     <div id="eventshead" >
         <div id="searchwrapper">
-            <input type="text" class="search" ng-model="searchquery" placeholder="Filter and search">   
+            <input type="text" class="search" ng-model="searchquery" placeholder="Filter">   
         </div>
         <i class="icon-group"></i>
-        <i class="icon-plus-sign"></i>
-        <i class="icon-search"></i>    
+        <i class="icon-plus-sign"></i>  
     </div>
 
     <%= render 'layouts/eventbox', :action => 'create', :description => 'Create', :meth => 'New' %>

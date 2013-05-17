@@ -15,7 +15,7 @@ $(document).ready ->
     ), 5000
 
   # Fix timeline
-  $('#timeline').css "height", $(window).height() - $('footer').height() - $('#nav_wrap').height()
+  # $('#timeline').css "height", $(window).height() - $('footer').height() - $('#nav_wrap').height()
   
   $('#timeline').click ->
     if $('#timeline #times').is(':hidden')
