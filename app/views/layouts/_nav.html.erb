@@ -3,10 +3,16 @@
 
   <% if !current_page?(root_url) %>
     <%= link_to root_url, title: 'Home' do %>
-      <a href="/" title="Home"><i class="icon-home"></i></a>
+      <i class="icon-home"></i>
     <% end  %>
-    
   <% end %>
+
+  <% if false %>
+    <%= link_to 'notices', title: 'Notices' do %>
+    <i class="icon-envelope" id="notices"></i>
+    <% end %>
+  <% end %>
+
   <a href="notices">Notices</i></a>
   <a href="events">Events</i></a>
   <a href="diaries">Diaries</i></a>

@@ -22,6 +22,7 @@ group :development do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'unicorn'
 gem "mongoid"
 gem 'formtastic'

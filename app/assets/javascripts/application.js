@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require ./angular/angular.min.js
 //= require ./angular/angular-resource.min.js
 //= require_tree .

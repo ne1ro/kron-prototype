@@ -1,6 +1,19 @@
 # Here is JQuery
 $(document).ready ->
 
+  # Blinking notices
+  if $('#notices').is(':visible')
+    setInterval (->
+      $('#notices').animate 
+        color : '#CEC7BF'
+      , 1000
+      setTimeout (->
+        $('#notices').animate 
+          color : '#E34234'
+        , 1000
+      ), 3000
+    ), 5000
+
   # Fix timeline
   $('#timeline').css "height", $(window).height() - $('footer').height() - $('#nav_wrap').height()
   
