@@ -4,8 +4,8 @@
       <input type="text" placeholder="Header" class="textinput" ng-model="<%= meth.downcase %>Event.header">
       <input type="submit" value="<%= description %>" class="buttoninput">
       <textarea placeholder="Description" ng-model="<%= meth.downcase %>Event.description"></textarea>
-      <% ['Year', 'Month', 'Day', 'Hour', 'Minute'].each do |field| %>
-        <%= render 'layouts/dateinput', model:  meth.downcase+'Event' , field: field %>
+      <% [{name: 'Year', type: 'yyyy'},{name: 'Month', type: 'MMM'},{name: 'Day', type: 'dd'},{name: 'Hour', type: 'HH'},{name: 'Minute', type: 'mm'}].each do |field| %>
+        <%= render 'layouts/dateinput', model:  meth.downcase+'Event' , field: field[:name], type: field[:type] %>
       <% end %>
     </form>
 

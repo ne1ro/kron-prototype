@@ -1,6 +1,6 @@
 <div class="dateinput">
   <p><%= field %></p>
-  <input type="text" ng-model="editEvent.time" time-filter="yyyy" id="input">
+  <input type="text" ng-model="<%= model %>.time" time-filter="<%= type %>" id="input">
   <input type="button" class="button-date" id="button-plus" ng-click="inc<%= field %>()" value="+">
   <input type="button" class="button-date" id="button-minus" ng-click="dec<%= field %>()" value="-">
 </div>

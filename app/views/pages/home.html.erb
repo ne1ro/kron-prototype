@@ -10,7 +10,7 @@
             <input type="text" class="search" ng-model="searchquery" placeholder="Filter">   
         </div>
         <i class="icon-group"></i>
-        <i class="icon-plus-sign"></i>  
+        <i class="icon-plus-sign" ng-click="newDate()"></i>  
     </div>
 
     <%= render 'layouts/eventbox', :action => 'create', :description => 'Create', :meth => 'New' %>

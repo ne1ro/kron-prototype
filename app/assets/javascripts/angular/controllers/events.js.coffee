@@ -5,6 +5,7 @@
 @EventCtrl = ["$scope", "$filter", "Event", "Calendar", ($scope, $filter, Event, Calendar) ->
   $scope.events = Event.query()
   $scope.data = new Date()
+  $scope.newEvent = {}
 
   $scope.createEvent = ->
     event = Event.save($scope.newEvent)
@@ -22,4 +23,6 @@
     Event.delete(id : event._id)
     $scope.events.splice($index,1)
 
+  $scope.newDate = ->
+    $scope.newEvent.time = new Date()
 ]    
