@@ -21,6 +21,7 @@ group :development do
   gem 'guard-livereload'
 end
 
+gem 'jquery-rails'
 gem 'unicorn'
 gem "mongoid"
 gem 'formtastic'

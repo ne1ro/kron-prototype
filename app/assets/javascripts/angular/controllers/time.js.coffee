@@ -8,7 +8,6 @@
   $scope.getNow = ->
     $scope.now = new Date()
     $timeout($scope.getNow,1000)
-    $scope.isScroll = if document.height > window.innerHeight then true else false
 
   $timeout($scope.getNow,1000)
   
