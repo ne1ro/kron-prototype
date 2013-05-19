@@ -33,5 +33,4 @@ app.directive "timeFilter", (dateFilter) ->
 # DateTime picker
 app.directive "dateTimePicker", ->
   (scope, element, attrs) ->
-    $(element).datetimepicker()
-
+    # $(element).datetimepicker()

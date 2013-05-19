@@ -14,3 +14,7 @@ app.factory "Event" , ["$resource", ($resource) ->
 # Calendar
 app.factory "Calendar", ->
   wDay = null
+
+# Socket.io
+app.factory "socket", ($rootScope) ->
+  socket = io.connect('http://localhost:8000')

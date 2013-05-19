@@ -2,14 +2,20 @@
 # Resource
 
 # Events controller
-@EventCtrl = ["$scope", "$filter", "Event", "Calendar", ($scope, $filter, Event, Calendar) ->
+@EventCtrl = ["$scope", "$filter", "Event", "socket", ($scope, $filter, Event, socket) ->
   $scope.events = Event.query()
   $scope.data = new Date()
   $scope.newEvent = {}
   $scope.editEvent = {}
 
+  socket.on 'notify', (data) ->
+    $scope.notify = data
+    $('#black').fadeIn 500
+    $('#notify').slideDown 500
+
   $scope.createEvent = ->
     event = Event.save($scope.newEvent)
+    socket.emit 'notify', event
     $scope.events.push(event)
     $scope.newEvent = {}
 
@@ -18,6 +24,7 @@
 
   $scope.updateEvent = ->
     $scope.editEvent.$update(id : $scope.editEvent._id)
+    socket.emit 'notify', $scope.editEvent
     $scope.events = Event.query()
     
   $scope.deleteEvent = (event, $index) ->

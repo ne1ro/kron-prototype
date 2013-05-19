@@ -59,3 +59,8 @@ $(document).ready ->
   $('.eventbox #closer').click ->
     $('#ui-datepicker-div').slideUp 500
     $('.eventbox').slideUp(500)
+
+  # Notify close
+  $('#notify').click ->
+    $('#notify').slideUp 500
+    $('#black').fadeOut 500
