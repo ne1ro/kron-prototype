@@ -30,4 +30,8 @@ app.directive "timeFilter", (dateFilter) ->
     ctrl.$formatters.push (data) ->
       dateFilter(data, format)
    
+# DateTime picker
+app.directive "dateTimePicker", ->
+  (scope, element, attrs) ->
+    $(element).datetimepicker()
 

@@ -14,9 +14,6 @@ $(document).ready ->
       ), 3000
     ), 5000
 
-  # Fix timeline
-  # $('#timeline').css "height", $(window).height() - $('footer').height() - $('#nav_wrap').height()
-  
   $('#timeline').click ->
     if $('#timeline #times').is(':hidden')
       $('#eventside').animate 
@@ -59,8 +56,6 @@ $(document).ready ->
         $('.eventbox#edit').slideUp(500)
       $('.eventbox#new').slideDown(500)
 
-  $('.eventbox#new').mouseleave ->
-    $('.eventbox#new').slideUp(500)
-
-  $('.eventbox#edit').mouseleave ->
-    $('.eventbox#edit').slideUp(500)
+  $('.eventbox #closer').click ->
+    $('#ui-datepicker-div').slideUp 500
+    $('.eventbox').slideUp(500)

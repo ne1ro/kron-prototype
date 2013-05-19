@@ -6,6 +6,7 @@
   $scope.events = Event.query()
   $scope.data = new Date()
   $scope.newEvent = {}
+  $scope.editEvent = {}
 
   $scope.createEvent = ->
     event = Event.save($scope.newEvent)
@@ -25,4 +26,5 @@
 
   $scope.newDate = ->
     $scope.newEvent.time = new Date()
+    $scope.month = $scope.newEvent.time.getMonth()
 ]    

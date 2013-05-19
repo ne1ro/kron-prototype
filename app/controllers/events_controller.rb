@@ -24,7 +24,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(params[:event])
-
     respond_to do |format|
       format.html
       format.json {render :json => @event}
