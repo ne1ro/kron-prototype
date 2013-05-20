@@ -65,3 +65,17 @@ $(document).ready ->
     $('#notify').slideUp 500
     $('#black').fadeOut 500
 
+  # Welcome page
+  $('#welcome a.dotted').mouseenter ->
+    $('#welcome #log_in').slideUp 500
+    $('#welcome #sign_up').slideDown 500
+    $('#or').fadeOut 500
+    $(this).fadeOut 500
+
+  $('#welcome #sign_up').mouseleave ->
+    $('#or').fadeIn 500
+    $('#welcome a.dotted').fadeIn 500
+    $('#welcome #sign_up').slideUp 500
+    $('#welcome #log_in').slideDown 500
+
+

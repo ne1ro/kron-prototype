@@ -3,14 +3,18 @@
   <%= image_tag 'logo.png', id: 'logo' %>
   <h1>Share your time</h1>
 
-  <%= form_for(@user, :html => {id: 'input_wrapper', class: 'clearfix'}) do |f| %>
+  <%= form_for(@user, :html => {id: 'log_in', class: 'input_wrapper'}) do |f| %>
     <%= f.text_field :login, placeholder: 'Log in' %>
     <%= f.password_field :password, placeholder: 'Password'%>
     <%= f.submit 'Log in', class: 'dotted' %>  
   <% end %>
-
-  <p>or</p><a href="#" class="dotted">Sign Up</a>
-
+  <p id="or">or</p>
+  <%= form_for(@user, :html => {id: 'sign_up', class: 'input_wrapper'}) do |f| %>
+    <%= f.text_field :login, placeholder: 'Log in' %>
+    <%= f.password_field :password, placeholder: 'Password'%>
+    <%= f.submit 'Sign up', class: 'dotted' %>  
+  <% end %>
+  <a href="#" class="dotted">Sign Up</a>
   <hr>
 
   <ul id="footer">
