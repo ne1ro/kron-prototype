@@ -2,14 +2,7 @@
 <html>
 <%= render 'layouts/head' %>
 <body ng-init>
-  <div id="black">
-  </div>
-  <div id="notify" ng-model="notify" ng-controller="EventCtrl">
-    <h1>{{notify.header}}</h1>
-    <p>{{notify.description}}</p>
-    <hr>
-    <p>Date and time : {{notify.time | date : 'HH:mm Z dd MMM yyyy'}}</p>    
-  </div>
+  <%= render 'layouts/notify' %>
 
   <%= render 'layouts/nav' %>
   <div id="content_wrapper">

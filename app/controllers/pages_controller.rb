@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
+  layout 'simple'
   def home
     @title = 'Home'
+    render :layout => 'layouts/application'
   end
 
   def welcome
@@ -13,5 +15,9 @@ class PagesController < ApplicationController
 
   def about
     @title = 'About'
+  end
+
+  def sign_up
+    @title = 'Sign up'
   end
 end
