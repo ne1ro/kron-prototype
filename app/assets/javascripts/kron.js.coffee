@@ -64,3 +64,4 @@ $(document).ready ->
   $('#notify').click ->
     $('#notify').slideUp 500
     $('#black').fadeOut 500
+

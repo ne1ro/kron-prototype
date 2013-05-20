@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <%= render 'layouts/head' %>
+<%= stylesheet_link_tag "welcome", :media => "all" %>
 <body ng-init style="background : url('/assets/welcome_bg.jpg')">
   <div id="content" class="clearfix">
     <%= yield %>

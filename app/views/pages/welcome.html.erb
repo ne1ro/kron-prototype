@@ -1,0 +1,28 @@
+<div id="welcome">
+  <h2>Kron Network</h2>
+  <%= image_tag 'logo.png', id: 'logo' %>
+  <h1>Share your time</h1>
+
+  <%= form_for(@user, :html => {id: 'input_wrapper', class: 'clearfix'}) do |f| %>
+    <%= f.text_field :login, placeholder: 'Log in' %>
+    <%= f.password_field :password, placeholder: 'Password'%>
+    <%= f.submit 'Log in', class: 'dotted' %>  
+  <% end %>
+
+  <p>or</p><a href="#" class="dotted">Sign Up</a>
+
+  <hr>
+
+  <ul id="footer">
+    <li><a href="/about">About Us</a></li>
+    <li><a href="/tour">Kron Tour</a></li>
+    <li><a href="/terms">Kron Terms</a></li>
+  </ul>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>Created by Aleksey Kuznetsov</p>
+  <p>All rights reserved <br> © 2013</p></p>
+</div>

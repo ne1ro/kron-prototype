@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 
   def welcome
     @title = 'Welcome!'
+    @user = ''
   end
 
   def tour
@@ -17,7 +18,8 @@ class PagesController < ApplicationController
     @title = 'About'
   end
 
-  def sign_up
-    @title = 'Sign up'
+  def terms
+    @title = 'Terms'
   end
+
 end

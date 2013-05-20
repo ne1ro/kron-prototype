@@ -1,0 +1,113 @@
+
+@white : #FFF;
+@brown : #483C32;
+@orange : #F46F1B;
+@red : #E34234;
+@black : #333;
+@green : #006400;
+@warm : #CEC7BF;
+
+h1 {
+  font-size : 4em;
+  color : @white;
+  text-align : center;
+  margin : 0;
+} 
+
+h2 {
+  font-size : 2em;
+  color : @white;
+  text-align: center;
+  margin: 0 0 1em 0;
+}
+
+#logo {
+  width: 10em;
+  height: 10em;
+  display: block;
+  margin: 0 auto;
+}
+
+#content {
+  width : 62em;
+  margin : 0 auto;
+  box-shadow : none;
+  padding: 0;
+}
+
+#welcome {
+  height : 40em;
+  margin-top : 10em;
+}
+
+#input_wrapper {
+  margin : 1em auto;
+  width : 30.5em;
+}
+
+input {
+  display: inline-block;
+  text-align: center;
+  width : 15em;
+  height : 1.5em;
+  font-size : 1em;
+  background : rgba(50,50,50,0.5);
+  color : @warm;
+  border: none;
+  outline: none;
+} 
+
+p {
+  text-align: center;
+  margin: 0.5em;
+  color : @white;
+}
+
+.dotted {
+  display: block;
+  background: none;
+  text-decoration: none;
+  color : @white!important;
+  font-weight: bold;
+  border-bottom: 0.125em dotted @white;
+  margin : 0.5em auto;
+  width : auto;
+}
+
+a:hover {
+  color : @green!important;
+}
+
+a.dotted {
+  display: block;
+  width : 3.75em;
+}
+
+hr {
+  border : 0.125em solid rgba(50,50,50,0.25);
+  width : 50%;
+  display: block;
+  margin : 1em auto;
+}
+
+ul#footer {
+  display: block;
+  margin : 1em auto;
+  clear: both;
+  list-style-type: none;
+  color : @warm;
+  padding : 0;
+  width : 30em;
+}
+
+ul#footer li {
+  float: left;
+  width : 33.333%;
+}
+
+ul#footer li a{
+  text-decoration: none;
+  color : @white;
+  text-align: center;
+  display: block;
+}
