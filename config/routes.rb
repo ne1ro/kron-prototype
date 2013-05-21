@@ -33,8 +33,9 @@ Kron::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :events, :notifications
-  resources :users, :only => [:show]
+  resources :users, :only => [:show] do
+    resources :events, :notifications
+  end
 
   # Sample resource route with options:
   #   resources :products do

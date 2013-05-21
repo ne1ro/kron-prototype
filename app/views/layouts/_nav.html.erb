@@ -13,8 +13,8 @@
     <% end %>
   <% end %>
 
-  <a href="notices">Notices</i></a>
-  <a href="events">Events</i></a>
+  <%= link_to 'Notices', user_notifications_path(current_user) %>
+  <%= link_to 'Events', user_events_path(current_user) %>
   <a href="diaries">Diaries</i></a>
   <a href="schedules">Schedules</i></a>
   <a href="groups">Groups</i></a>
