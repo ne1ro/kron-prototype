@@ -16,6 +16,7 @@ class User
 
   ## Rememberable
   field :remember_created_at, :type => Time
+  field :remember_me, type: Boolean
 
   ## Trackable
   field :sign_in_count,      :type => Integer, :default => 0

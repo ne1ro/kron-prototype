@@ -1,0 +1,54 @@
+.onoffswitch {
+    position: relative; width: 4em;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    float: left;
+    margin : 0.5em 0.5em 0 0;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 0em solid rgba(50,50,50,0.6); border-radius: 0em;
+}
+.onoffswitch-inner {
+    width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.5s ease-in 0s; -webkit-transition: margin 0.5s ease-in 0s;
+    -o-transition: margin 0.5s ease-in 0s; transition: margin 0.5s ease-in 0s;
+}
+.onoffswitch-inner > div {
+    float: left; position: relative; width: 50%; height: 1.5em; padding: 0; line-height: 1.5em;
+    font-size: 0.85em; color: white; font-family: Ubuntu, Arial, Helvetica, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.onoffswitch-inner .onoffswitch-active {
+    padding-left: 1em;
+    background-color: rgba(50,50,50,0.5); color: #FFFFFF;
+}
+.onoffswitch-inner .onoffswitch-inactive {
+    padding-right: 1em;
+    background-color: rgba(50,50,50,0.5); color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch {
+    width: 2.45em; margin: 0px; text-align: center; 
+    border: 0px solid rgba(50,50,50,0.6);border-radius: 0px; 
+    position: absolute; top: 0; bottom: 0;
+}
+.onoffswitch-active .onoffswitch-switch {
+    background: rgba(204, 111, 27, 0.75); left: 0;
+}
+.onoffswitch-inactive .onoffswitch-switch {
+    background: rgba(50,50,50,0.6); right: 0;
+}
+.onoffswitch-active .onoffswitch-switch:before {
+    content: " "; position: absolute; top: 0; left: 2.45em; 
+    border-style: solid; border-color: rgba(204, 111, 27, 0.75) transparent transparent rgba(204, 111, 27, 0.75); border-width: 0.75em 0.5em;
+}
+.onoffswitch-inactive .onoffswitch-switch:before {
+    content: " "; position: absolute; top: 0; right: 2.45em; 
+    border-style: solid; border-color: transparent rgba(50,50,50,0.6) rgba(50,50,50,0.6) transparent; border-width: 0.75em 0.5em;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
