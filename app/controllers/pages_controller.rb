@@ -1,8 +1,12 @@
 class PagesController < ApplicationController
   layout 'simple'
   def home
-    @title = 'Home'
-    render :layout => 'layouts/application'
+    if user_signed_in?
+      @title = 'Home'
+      render :layout => 'layouts/application'
+    else
+      redirect_to '/welcome'
+    end
   end
 
   def welcome

@@ -29,6 +29,8 @@ gem 'formtastic'
 gem 'less-rails'
 gem 'therubyracer'
 gem "font-awesome-rails"
+gem 'devise'
+gem 'bson_ext'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

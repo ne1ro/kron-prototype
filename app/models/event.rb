@@ -8,6 +8,7 @@ class Event
   field :time, type: DateTime
 
   embeds_many :notifications
+  embedded_in :user
 
   # Callbacks
   before_save :check_header, :if => :header?
