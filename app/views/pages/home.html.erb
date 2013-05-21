@@ -31,24 +31,28 @@
 <div id="dashside" ng-controller="TimeCtrl">
 
     <div id="userprofile">
-      <div id="profile">
-        <h1>Aleksey Kuznetsov</h1>
-        <a href="/users/ne1ro" class="avatar">
-          <%= image_tag('ne1ro.png') %>
-        </a>
-        <h2>@ne1ro</h2>
-        <p>Web-developer, creator of the Kron Network</p>
+      <div id="profile" style="<%= show_user_profile_bg %>">
+        <h1><%= current_user.fullname %></h1>
+        <%= link_to user_path(current_user.nickname), class: 'avatar' do %>
+          <% unless current_user.avatar.blank? %>
+            <%= image_tag(current_user.avatar) %>
+          <% else %>
+            <%= image_tag('anon.png') %>
+          <% end %>
+        <% end %>
+        <h2>@<%= current_user.nickname %></h2>
+        <p><%= current_user.about %></p>
       </div>
       <div id="buttons">
-          <a href="/users/ne1ro/" class="profile-button">
-          <p>Full</p>
-          <p>Profile</p>
-        </a>
-        <a href="/users/ne1ro/following" class="profile-button">
+          <%= link_to user_path(current_user.nickname), class: 'profile-button' do %>
+            <p>Full</p>
+            <p>Profile</p>
+          <% end %>
+        <a href="#" class="profile-button">
           <p><b>0</b></p>
           <p>Following</p>
         </a>
-        <a href="/users/ne1ro/followers" class="profile-button" id="last">
+        <a href="#" class="profile-button" id="last">
           <p><b>0</b></p>
           <p>Followers</p>
         </a>

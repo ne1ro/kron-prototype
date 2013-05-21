@@ -7,20 +7,20 @@
   </div>
   <div class="column">
     <ul>
-      <li><a href="notices">My notifications</a></li>
-      <li><a href="events">My events</a></li>
-      <li><a href="diaries">My diaries</a></li>
-      <li><a href="groups">My groups</a></li>
-      <li><a href="schedules">My schedules</a></li>
+      <li><a href="/notices">My notifications</a></li>
+      <li><a href="/events">My events</a></li>
+      <li><a href="/diaries">My diaries</a></li>
+      <li><a href="/groups">My groups</a></li>
+      <li><a href="/schedules">My schedules</a></li>
     </ul>
   </div>
   <div class="column">
     <ul>
-      <li><a href="users/neiro">My account</a></li>
+      <li><%= link_to 'My account', user_path(current_user.nickname) %></a></li>
       <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
-      <li><a href="users/ne1ro">About Kron</a></li>
-      <li><a href="users/ne1ro">Kron Tour</a></li>
-      <li><a href="users/ne1ro">Time</a></li>
+      <li><a href="/about">About Kron</a></li>
+      <li><a href="/tour">Kron Tour</a></li>
+      <li><a href="/terms">Terms</a></li>
     </ul>
   </div>    
 </footer>

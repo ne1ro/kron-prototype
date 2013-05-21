@@ -42,6 +42,9 @@ class User
   field :birthday, :type => DateTime
   field :about, :type => String
   field :email, :type => String, :default => ""
+  field :avatar, :type => String
+  field :bg, :type => String
+  field :profile_bg, :type => String
 
   # Embeds
   embeds_many :events
@@ -54,7 +57,7 @@ class User
   
 
   # Accessible
-  attr_accessible :nickname, :email, :password, :fullname, :about, :birthday
+  attr_accessible :nickname, :email, :password, :fullname, :about, :birthday, :avatar, :bg, :profile_bg
 
   # Email is not required
   def email_required?

@@ -48,7 +48,7 @@ class EventsController < ApplicationController
     end   
   end
 
-  private
+private
   # Check authorization for users
   def check_auth
     unless user_signed_in?

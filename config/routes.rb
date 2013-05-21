@@ -1,4 +1,6 @@
 Kron::Application.routes.draw do
+  get "users/show"
+
   devise_for :users
 
   get "events/index"
@@ -27,10 +29,13 @@ Kron::Application.routes.draw do
   match 'welcome' => 'pages#welcome'
   match 'tour' => 'pages#tour'
   match 'about' => 'pages#about'
-  
+  match '/users/:nickname' => 'users#show', as: 'nickname'
+
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :events, :notifications
+  resources :users, :only => [:show]
+
   # Sample resource route with options:
   #   resources :products do
   #     member do
