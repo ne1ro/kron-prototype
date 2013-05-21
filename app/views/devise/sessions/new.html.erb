@@ -1,0 +1,6 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {id: 'log_in', class: 'input_wrapper'}) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.text_field :nickname, placeholder: 'Login' %>
+    <%= f.password_field :password, placeholder: 'Password'%>
+    <%= f.submit 'Log in', class: 'dotted' %>  
+<% end %>

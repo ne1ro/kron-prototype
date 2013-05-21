@@ -11,7 +11,6 @@ class PagesController < ApplicationController
 
   def welcome
     @title = 'Welcome!'
-    @user = ''
   end
 
   def tour

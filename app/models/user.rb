@@ -41,15 +41,24 @@ class User
   field :fullname, :type => String, :default => ""
   field :birthday, :type => DateTime
   field :about, :type => String
-  field :email, :type => String
+  field :email, :type => String, :default => ""
 
   # Embeds
   embeds_many :events
 
   # Here is validations
   validates :nickname, format: {with: /\A[a-zA-Z0-9]+\z/}, length: { minimum: 3, maximum: 50}, presence: true, uniqueness: true
-  validates :encrypted_password, presence: true
+  validates :password, presence: true
   validates :fullname, length: { maximum: 255}
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, on: :update
+  
+
+  # Accessible
+  attr_accessible :nickname, :email, :password, :fullname, :about, :birthday
+
+  # Email is not required
+  def email_required?
+    false
+  end
 
 end
