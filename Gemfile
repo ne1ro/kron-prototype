@@ -31,6 +31,12 @@ gem 'therubyracer'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'bson_ext'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-vkontakte'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
