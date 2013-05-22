@@ -1,5 +1,5 @@
 # Controlling time
-@TimeCtrl = ($scope, $timeout, Calendar)->
+@TimeCtrl = ($scope, $timeout)->
 
   # Declare months and week days
   $scope.wdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -12,7 +12,6 @@
   $timeout($scope.getNow,1000)
   
   # Get calendar
-  $scope.calendar = Calendar
   $scope.shapshot = new Date()
   $scope.time = $scope.shapshot
   $scope.current_month = $scope.time.getMonth()

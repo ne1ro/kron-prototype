@@ -7,8 +7,8 @@
   </div>
   <div class="column">
     <ul>
-      <li><%= link_to 'My notifications', user_notifications_path(current_user) %></li>
-      <li><%= link_to 'My events', user_events_path(current_user) %></li>
+      <li><%= link_to 'My notifications', user_notifications_path(current_user.nickname) %></li>
+      <li><%= link_to 'My events', user_events_path(current_user.nickname) %></li>
       <li><a href="/diaries">My diaries</a></li>
       <li><a href="/groups">My groups</a></li>
       <li><a href="/schedules">My schedules</a></li>

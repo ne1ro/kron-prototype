@@ -1,8 +1,8 @@
 <div id="nav_wrap" ng-controller="TimeCtrl"> 
  <nav>
 
-  <% if !current_page?(root_url) %>
-    <%= link_to root_url, title: 'Home' do %>
+  <% if !current_page?(user_path(current_user.nickname)) %>
+    <%= link_to user_path(current_user.nickname), title: 'Home' do %>
       <i class="icon-home"></i>
     <% end  %>
   <% end %>
@@ -13,8 +13,8 @@
     <% end %>
   <% end %>
 
-  <%= link_to 'Notices', user_notifications_path(current_user) %>
-  <%= link_to 'Events', user_events_path(current_user) %>
+  <%= link_to 'Notices', user_notifications_path(current_user.nickname) %>
+  <%= link_to 'Events', user_events_path(current_user.nickname) %>
   <a href="diaries">Diaries</i></a>
   <a href="schedules">Schedules</i></a>
   <a href="groups">Groups</i></a>

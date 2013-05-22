@@ -1,0 +1,76 @@
+<div id="timeline">
+  <div id="times" times>
+    <p ng-repeat="n in ['00:00', '01:00', '02:00','03:00', '04:00','05:00', '06:00','07:00', '08:00','09:00', '10:00','11:00', '12:00', '13:00','14:00', '15:00','16:00', '17:00','18:00', '19:00','20:00', '21:00','22:00', '23:00']" ng-class="{'last' : $last}">{{n}}</p> 
+  </div>
+</div>
+
+<div id="eventside"  ng-controller="EventCtrl">
+    <div id="eventshead" >
+        <div id="searchwrapper">
+            <input type="text" class="search" ng-model="searchquery" placeholder="Filter">   
+        </div>
+        <% if @user == current_user %>
+          <i class="icon-plus-sign" ng-click="newDate()"></i>  
+          <i class="icon-group"></i>
+        <% end %>
+    </div>
+    
+    <%= render 'layouts/eventbox', :action => 'create', :description => 'Create', :meth => 'New' %>
+    <%= render 'layouts/eventbox', :action => 'update', :description => 'Update', :meth => 'Edit' %>
+
+    <div class="event" event ng-repeat="event in events | filter : searchquery " ng-class="{'last': $last}">
+    <p class="time">{{event.time | date:'H:mm'}}</p>
+    <p class="header">{{event.header}}</p>
+
+    <p class="description">{{event.description}}</p>
+      <i class="icon-edit" ng-click="showEvent(event, $index)"></i>
+      <i class="icon-trash" ng-click="deleteEvent(event, $index)"></i>
+      <i class="icon-group"></i>     
+    </div>
+</div>
+
+<div id="dashside" ng-controller="TimeCtrl">
+
+    <div id="userprofile">
+      <div id="profile" style="<%= show_user_profile_bg(@user) %>">
+        <h1><%= @user.fullname %></h1>
+        <%= link_to user_path(@user.nickname), class: 'avatar' do %>
+          <% unless @user.avatar.blank? %>
+            <%= image_tag(@user.avatar) %>
+          <% else %>
+            <%= image_tag('anon.png') %>
+          <% end %>
+        <% end %>
+        <h2>@<%= @user.nickname %></h2>
+        <p><%= @user.about %></p>
+      </div>
+      <div id="buttons">
+          <%= link_to user_path(@user.nickname), class: 'profile-button' do %>
+            <p>Full</p>
+            <p>Profile</p>
+          <% end %>
+        <a href="#" class="profile-button">
+          <p><b>0</b></p>
+          <p>Following</p>
+        </a>
+        <a href="#" class="profile-button" id="last">
+          <p><b>0</b></p>
+          <p>Followers</p>
+        </a>
+      </div> 
+    </div>
+               
+      <%= render 'layouts/calendar' %>
+
+  <div id="socialside" ng-controller="GroupCtrl">
+    <div class="group" ng-repeat="group in groups">
+      <div id="header">
+        <p>{{group.name}}</p>
+        <div id="users" ng-repeat="user in group.users">
+          <a href="users/{{user}}" class="avatar"><%= image_tag('anon.png') %>
+          </a>
+        </div>  
+      </div>    
+    </div>
+  </div>
+</div>
