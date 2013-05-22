@@ -27,7 +27,6 @@ Kron::Application.routes.draw do
   match 'welcome' => 'pages#welcome'
   match 'tour' => 'pages#tour'
   match 'about' => 'pages#about'
-  match '/users/:nickname' => 'users#show', as: 'nickname'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

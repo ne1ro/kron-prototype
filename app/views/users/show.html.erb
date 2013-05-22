@@ -45,7 +45,7 @@
         <p><%= @user.about %></p>
       </div>
       <div id="buttons">
-          <%= link_to user_path(@user.nickname), class: 'profile-button' do %>
+          <%= link_to user_path(@user), class: 'profile-button' do %>
             <p>Full</p>
             <p>Profile</p>
           <% end %>

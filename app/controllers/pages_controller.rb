@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def welcome
     @title = 'Welcome!'
     if user_signed_in?
-      redirect_to user_path(current_user.nickname)
+      redirect_to user_path(current_user)
     end
   end
 

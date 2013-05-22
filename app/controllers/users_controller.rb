@@ -2,18 +2,12 @@ class UsersController < ApplicationController
   before_filter :check_auth
   
   def show
-    @user = User.find_by(nickname: params[:nickname])
+    @user = User.find(params[:id])
     if @user.fullname.blank?
       @title = @user.nickname
     else
       @title = @user.fullname
     end
-    
-    respond_to do |format|
-      format.html
-      format.json {render :json => @user}
-    end
-  
   end
   
   private

@@ -2,8 +2,8 @@
 @EventCtrl = ["$scope", "$filter", "Event", "socket", "$location", ($scope, $filter, Event, socket, $location) ->
   path = window.location.pathname
 
-  nickname = path.substr(7)
-  $scope.events = Event.query(usernick : nickname)
+  uid = path.substr(7)
+  $scope.events = Event.query(uid : uid)
   $scope.data = new Date()
   $scope.newEvent = {}
   $scope.editEvent = {}
@@ -14,21 +14,21 @@
     $('#notify').slideDown 500
 
   $scope.createEvent = ->
-    event = Event.save($scope.newEvent, usernick : nickname)
+    event = Event.save($scope.newEvent)
     socket.emit 'notify', event
     $scope.events.push(event)
     $scope.newEvent = {}
 
   $scope.showEvent = (event, $index) ->
-    $scope.editEvent = Event.get(id : event._id, usernick : nickname)
+    $scope.editEvent = Event.get(id : event._id, uid : uid)
 
   $scope.updateEvent = ->
-    $scope.editEvent.$update(id : $scope.editEvent._id, usernick : nickname)
+    $scope.editEvent.$update(id : $scope.editEvent._id, uid : uid)
     socket.emit 'notify', $scope.editEvent
     $scope.events = Event.query()
     
   $scope.deleteEvent = (event, $index) ->
-    Event.delete(id : event._id, usernick : nickname)
+    Event.delete(id : event._id, uid : uid)
     $scope.events.splice($index,1)
 
   $scope.newDate = ->

@@ -7,7 +7,7 @@ $(document).on('ready page:load', ->
 
 # Resources
 app.factory "Event" , ["$resource", ($resource) ->
-  $resource("/users/:usernick/events/:id", {usernick: '@usernick', id: '@id'}, {update: {method: "PUT"}})
+  $resource("/users/:uid/events/:id", {uid: '@uid', id: '@id'}, {update: {method: "PUT"}})
 ]
 
 # Socket.io

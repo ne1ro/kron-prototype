@@ -7,8 +7,8 @@
   </div>
   <div class="column">
     <ul>
-      <li><%= link_to 'My notifications', user_notifications_path(current_user.nickname) %></li>
-      <li><%= link_to 'My events', user_events_path(current_user.nickname) %></li>
+      <li><%= link_to 'My notifications', user_notifications_path(current_user) %></li>
+      <li><%= link_to 'My events', user_events_path(current_user) %></li>
       <li><a href="/diaries">My diaries</a></li>
       <li><a href="/groups">My groups</a></li>
       <li><a href="/schedules">My schedules</a></li>
@@ -16,7 +16,7 @@
   </div>
   <div class="column">
     <ul>
-      <li><%= link_to 'My account', user_path(current_user.nickname) %></a></li>
+      <li><%= link_to 'My account', user_path(current_user) %></a></li>
       <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
       <li><a href="/about">About Kron</a></li>
       <li><a href="/tour">Kron Tour</a></li>

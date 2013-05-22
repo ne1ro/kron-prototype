@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   before_filter :check_auth
 
   def index
-    @events = Event.all
+    @user = User.find(params[:user_id])
+    @events = @user.events.all
     @title = 'Events'
 
     respond_to do |format|
@@ -13,7 +14,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = @user.events.find(params[:id])
     @title = @event.header
 
     respond_to do |format|
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(params[:event])
+    @event = @user.events.create(params[:event])
     respond_to do |format|
       format.html
       format.json {render :json => @event}
@@ -32,7 +33,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event = Event.find(params[:id])
+    @event = @user.events.find(params[:id])
     @event.update_attributes(params[:event])
     respond_to do |format|
       format.json {head :no_content}
@@ -40,7 +41,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
+    @event = @user.events.find(params[:id])
     @event.destroy
     respond_to do |format|
       format.html

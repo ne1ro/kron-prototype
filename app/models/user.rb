@@ -56,7 +56,6 @@ class User
   validates :password, presence: true
   validates :fullname, length: { maximum: 255}
   validates :email, uniqueness: true, on: :update
-  
 
   # Accessible
   attr_accessible :nickname, :email, :password, :fullname, :about, :birthday, :avatar, :bg, :profile_bg
