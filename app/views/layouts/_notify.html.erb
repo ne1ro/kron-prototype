@@ -1,6 +1,9 @@
 <div id="black">
   </div>
   <div id="notify" ng-model="notify" ng-controller="EventCtrl">
+    <audio id="sound">
+      <source src="/notification.wav" />
+    </audio>
     <h1>{{notify.header}}</h1>
     <p>{{notify.description}}</p>
     <hr>
