@@ -53,7 +53,6 @@ class User
 
   # Here is validations
   validates :nickname, format: {with: /\A[a-zA-Z0-9]+\z/}, length: { minimum: 3, maximum: 50}, presence: true, uniqueness: true
-  validates :password, presence: true
   validates :fullname, length: { maximum: 255}
   validates :email, uniqueness: true, on: :update
 

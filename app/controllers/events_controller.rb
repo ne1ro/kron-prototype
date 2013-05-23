@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_filter :check_auth
+  skip_before_filter  :verify_authenticity_token
 
   def index
     @user = User.find(params[:user_id])
@@ -14,6 +15,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @event = @user.events.find(params[:id])
     @title = @event.header
 
@@ -25,6 +27,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
     @event = @user.events.create(params[:event])
     respond_to do |format|
       format.html
@@ -33,6 +36,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:user_id])
     @event = @user.events.find(params[:id])
     @event.update_attributes(params[:event])
     respond_to do |format|
@@ -41,6 +45,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:user_id])
     @event = @user.events.find(params[:id])
     @event.destroy
     respond_to do |format|
