@@ -28,11 +28,12 @@
 
   $scope.showEvent = (event, $index) ->
     $scope.editEvent = Event.get(id : event._id, uid : user_id)
+    $scope.editEventIndex = $index
 
   $scope.updateEvent = ->
     $scope.editEvent.$update(id : $scope.editEvent._id, uid : user_id)
     socket.emit 'notify', $scope.editEvent
-    $scope.events = Event.query(uid : user_id)
+    $scope.events[$scope.editEventIndex] = $scope.editEvent
     
   $scope.deleteEvent = (event, $index) ->
     Event.delete(uid : user_id, id : event._id)
