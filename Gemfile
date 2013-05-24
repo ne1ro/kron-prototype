@@ -20,7 +20,6 @@ group :development do
 end
 
 gem 'jquery-rails'
-gem 'unicorn'
 gem "mongoid"
 gem 'formtastic'
 gem 'less-rails'
@@ -34,6 +33,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-vkontakte'
+gem 'puma'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
