@@ -1,5 +1,7 @@
 Kron::Application.routes.draw do
-  devise_for :users
+  get "registrations/create"
+
+  devise_for :users, controllers: {registrations: "registrations", sessions: 'users'}
 
   get "events/index"
 
@@ -30,8 +32,10 @@ Kron::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :users, :only => [:show] do
-    resources :events, :notifications
+  devise_scope :user do
+    resources :users, :only => [:show] do
+      resources :events, :notifications
+    end
   end
 
   # Sample resource route with options:

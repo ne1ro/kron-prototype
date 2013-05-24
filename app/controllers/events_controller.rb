@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_filter :check_auth
-  skip_before_filter  :verify_authenticity_token
+  before_filter :authenticate_user!
+  skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
 
   def index
     @user = User.find(params[:user_id])

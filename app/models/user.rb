@@ -4,9 +4,8 @@ class User
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, 
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable,
          :omniauthable, :omniauth_providers => [:facebook, :google, :twitter, :vkontakte, :github]
-
   ## Database authenticatable
   field :nickname,           :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
@@ -17,7 +16,7 @@ class User
 
   ## Rememberable
   field :remember_created_at, :type => Time
-  field :remember_me, type: Boolean
+  field :remember_me, type: Boolean, default: true
 
   ## Trackable
   field :sign_in_count,      :type => Integer, :default => 0
@@ -38,7 +37,7 @@ class User
   # field :locked_at,       :type => Time
 
   ## Token authenticatable
-  # field :authentication_token, :type => String
+  field :authentication_token, :type => String
   
   field :fullname, :type => String, :default => ""
   field :birthday, :type => DateTime
@@ -63,5 +62,8 @@ class User
   def email_required?
     false
   end
+
+  # Callbacks
+  before_save :reset_authentication_token
 
 end
