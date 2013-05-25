@@ -33,7 +33,7 @@ Kron::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   devise_scope :user do
-    resources :users, :only => [:show] do
+    resources :users, :only => [:show, :index] do
       resources :events, :notifications
     end
   end

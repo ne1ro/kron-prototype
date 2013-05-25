@@ -23,9 +23,11 @@
     <p class="header">{{event.header}}</p>
 
     <p class="description">{{event.description}}</p>
-      <i class="icon-edit" ng-click="showEvent(event, $index)"></i>
-      <i class="icon-trash" ng-click="deleteEvent(event, $index)"></i>
-      <i class="icon-group"></i>     
+      <% if @user == current_user %>
+        <i class="icon-edit" ng-click="showEvent(event, $index)"></i>
+        <i class="icon-trash" ng-click="deleteEvent(event, $index)"></i>
+        <i class="icon-group"></i> 
+      <% end %>    
     </div>
 </div>
 
@@ -34,7 +36,7 @@
     <div id="userprofile">
       <div id="profile" style="<%= show_user_profile_bg(@user) %>">
         <h1><%= @user.fullname %></h1>
-        <%= link_to user_path(@user.nickname), class: 'avatar' do %>
+        <%= link_to user_path(@user), class: 'avatar' do %>
           <% unless @user.avatar.blank? %>
             <%= image_tag(@user.avatar) %>
           <% else %>
@@ -45,9 +47,16 @@
         <p><%= @user.about %></p>
       </div>
       <div id="buttons">
-          <%= link_to user_path(@user), class: 'profile-button' do %>
-            <p>Full</p>
-            <p>Profile</p>
+          <% if @user == current_user %>
+            <%= link_to user_path(@user), class: 'profile-button' do %>
+              <p>Edit</p>
+              <p>Profile</p>
+            <% end %>
+          <% else %>
+            <%= link_to user_path(@user), class: 'profile-button' do %>
+            <p>Follow</p>
+            <p>user</p>
+            <% end %>
           <% end %>
         <a href="#" class="profile-button">
           <p><b>0</b></p>

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :check_user, except: [:index, :show]
   skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
 
   def index
@@ -60,6 +61,12 @@ private
     unless user_signed_in?
       redirect_to '/welcome'
     end
+  end
+
+  # Check permissions for current user
+  def check_user
+    @user = User.find(params[:user_id])
+    redirect_to root_path unless current_user == @user
   end
 
 end
