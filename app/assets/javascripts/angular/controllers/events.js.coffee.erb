@@ -1,5 +1,5 @@
 # Events controller
-@EventCtrl = ["$scope", "$filter", "Event", "User", "socket", "$location", ($scope, $filter, Event, User, socket, $location) ->
+@EventCtrl = ["$scope", "$filter", "Event", "User", "Notification", "socket", "$location", ($scope, $filter, Event, User, Notificaion, socket, $location) ->
   path = window.location.pathname
   user_id = path.substr(7)
   $scope.events = Event.query(uid : user_id)
@@ -41,5 +41,9 @@
 
   $scope.newDate = ->
     $scope.newEvent.time = new Date()
+    notification = 
+      text : 'Notification'
+      time : $scope.newEvent.time
+    $scope.newEvent.notifications.push(notification)
     $scope.month = $scope.newEvent.time.getMonth()
 ]    

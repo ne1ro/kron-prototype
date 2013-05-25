@@ -34,7 +34,9 @@ Kron::Application.routes.draw do
   #   resources :products
   devise_scope :user do
     resources :users, :only => [:show, :index] do
-      resources :events, :notifications
+      resources :events do 
+        resources :notifications
+      end
     end
   end
 
