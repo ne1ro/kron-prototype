@@ -39,11 +39,19 @@
     Event.delete(uid : user_id, id : event._id)
     $scope.events.splice($index,1)
 
-  $scope.newDate = ->
-    $scope.newEvent.time = new Date()
+  $scope.addNotification = (datetime) ->
     notification = 
-      text : 'Notification'
+      text : $scope.newEvent.header
       time : $scope.newEvent.time
     $scope.newEvent.notifications.push(notification)
+
+  $scope.removeNotification = ($index) ->
+    $scope.newEvent.notifications.splice($index,1)
+
+
+  $scope.newDate = ->
+    $scope.newEvent.time = new Date()
+    $scope.newEvent.notifications = []
+    $scope.addNotification($scope.newEvent.time)
     $scope.month = $scope.newEvent.time.getMonth()
 ]    

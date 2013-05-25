@@ -601,10 +601,59 @@ p.chaser {
   padding : 1em;
   position: relative;
   z-index : 10;
+  
+  #notificationbox {
+    position: relative;
+    margin-top : 2.5em;
+  }
+
+  .notification {
+    overflow: hidden;
+  }
+
   p {
-    clear : both;
+    margin-left : 0.5em;
+  }
+
+  i.icon-trash {
+    float: left;
+    padding-right : 0.5em;
+    padding-top : 0.125em;
+    color : @red;
+  }
+
+  i.icon-trash:hover {
+    .transition;
+    color : @orange;
+  }
+
+  input.notification-input {
+    outline : none;
+    border : none;
+    background : rgba(50,50,50,0.5);
+    font-size : 0.9em;
     color : @warm;
-    padding-top : 0.5em;
+    float : left;
+    padding : 0 1em 0 1em;
+  }
+
+  hr {
+    border-color : @black + #222;
+  }
+
+  i.icon-plus {
+    position: absolute;
+    top : 0.5em;
+    color : @orange;
+  }
+
+  i.icon-plus:hover {
+    .transition;
+    color : @green;
+  }
+  p {
+    color : @warm;
+    padding : 0.25em 0 0 1em;
   } 
   i.icon-remove-sign {
     color : @red;
@@ -765,7 +814,8 @@ input.ng-valid:focus, textarea:focus {
   height : 1.5em;
   margin : 0.5em 0 0 0;
   padding: 0 1em 0 1em;
-  width : 30em;
+  width : 32em;
+  clear: both;
 }
 
 #notify {

@@ -5,7 +5,18 @@
       <input type="submit" value="<%= description %>" class="buttoninput">
       <textarea placeholder="Description" ng-model="<%= meth.downcase %>Event.description"></textarea>
       <input type="text" id="datetime-picker" date-time-picker time-filter="dd MMM yyyy HH:mm Z" ng-model="<%= meth.downcase %>Event.time">
-      <p>Event notifications : </p>
+      
+      <div id="notificationbox">
+        <i class="icon-plus" ng-click="addNotification(<%= action %>Event.time)"></i>
+        <p>Event notifications : </p>
+        <hr>
+        <div class="notification" ng-repeat=" notification in <%= meth.downcase %>Event.notifications">
+          <i class="icon-trash" ng-click="removeNotification(notification.$index)"></i>
+          <input type="text" class="notification-input" ng-model="notification.text" placeholder="Notification">
+          <input type="text" class="notification-input" date-time-picker time-filter="HH:mm Z dd MMM yyyy" ng-model="notification.time">
+        </div>
+      </div>
+      
     </form>
 
   <i class="icon-remove-sign" id="closer"></i>

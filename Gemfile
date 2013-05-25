@@ -17,13 +17,17 @@ end
 
 group :development do
   gem 'guard-livereload'
+  gem 'therubyracer'
+end
+
+group :production do
+  gem 'therubyrhino'
 end
 
 gem 'jquery-rails'
 gem "mongoid"
 gem 'formtastic'
 gem 'less-rails'
-gem 'therubyrhino'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'bson_ext'
