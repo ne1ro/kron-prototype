@@ -1,13 +1,13 @@
 # Events controller
-@EventCtrl = ["$scope", "$filter", "Event", "socket", "$location", ($scope, $filter, Event, socket, $location) ->
+@EventCtrl = ["$scope", "$filter", "Event", "User", "socket", "$location", ($scope, $filter, Event, User, socket, $location) ->
   path = window.location.pathname
-
   user_id = path.substr(7)
   $scope.events = Event.query(uid : user_id)
   $scope.data = new Date()
   $scope.newEvent = {}
   $scope.editEvent = {}
   
+  # On message notify
   socket.on 'notify', (data) ->
     $scope.notify = data
     $('#black').fadeIn 500

@@ -16,6 +16,8 @@ Gemfile.lock
 /log/*.log
 /tmp
 
+/public/assets
+
 */node_modules/*
 *.tmp
 *.swap

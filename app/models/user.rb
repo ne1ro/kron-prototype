@@ -16,7 +16,7 @@ class User
 
   ## Rememberable
   field :remember_created_at, :type => Time
-  field :remember_me, type: Boolean, default: true
+  field :remember_me, type: Boolean
 
   ## Trackable
   field :sign_in_count,      :type => Integer, :default => 0
@@ -56,7 +56,7 @@ class User
   validates :email, uniqueness: true, on: :update
 
   # Accessible
-  attr_accessible :nickname, :email, :password, :fullname, :about, :birthday, :avatar, :bg, :profile_bg
+  attr_accessible :nickname, :email, :password, :fullname, :about, :birthday, :avatar, :bg, :profile_bg, :remember_me
 
   # Email is not required
   def email_required?
