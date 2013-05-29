@@ -7,11 +7,11 @@
       <input type="text" id="datetime-picker" date-time-picker time-filter="dd MMM yyyy HH:mm Z" ng-model="<%= meth.downcase %>Event.time">
       
       <div id="notificationbox">
-        <i class="icon-plus" ng-click="addNotification(<%= action %>Event.time)"></i>
+        <i class="icon-plus" ng-click="add<%=meth.downcase%>Notification(<%= action %>Event.time)"></i>
         <p>Event notifications : </p>
         <hr>
         <div class="notification" ng-repeat=" notification in <%= meth.downcase %>Event.notifications">
-          <i class="icon-trash" ng-click="removeNotification(notification.$index)"></i>
+          <i class="icon-trash" ng-click="removeNotification($index)"></i>
           <input type="text" class="notification-input" ng-model="notification.text" placeholder="Notification">
           <input type="text" class="notification-input" date-time-picker time-filter="HH:mm Z dd MMM yyyy" ng-model="notification.time">
         </div>

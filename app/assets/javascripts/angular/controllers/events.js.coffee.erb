@@ -28,35 +28,55 @@
   # Create new event and notifications
   $scope.createEvent = ->
     Event.save uid : user_id, $scope.newEvent, ((data) ->
+      
       # Success callback
+      data.notifications = []
       for notification in $scope.newEvent.notifications
-        Notification.save uid : user_id, eid : data._id, notification, ((data) ->
+        Notification.save uid : user_id, eid : data._id, notification, ((notif_data) ->
           # Notifications success
-          socket.emit 'notify:create', data
+          socket.emit 'notify:create', notif_data
+          data.notifications.push notif_data
         ), (err) ->
           # Notifications error
       
-      $scope.events.push(data)
+      $scope.events.push data
       $scope.newEvent = new Event # reset scope`s new event
+
+      # Create new notifications
       $scope.newDate()
       $scope.newEvent.notifications = []
-      $scope.addNotification($scope.newEvent.time)
+      $scope.addnewNotification($scope.newEvent.time)
     ), (err) ->
       #error call-back 
 
   # Show event before edit
   $scope.showEvent = (event, $index) ->
-    $scope.editEvent = Event.get id : event._id, uid : user_id, ((data) ->
-      # Success
-      $scope.editEventIndex = $index
-    ), (err) ->
-      # Error
+    $scope.editEvent = event
+    $scope.editEventIndex = $index
+    
+    # Check for undefined
+    if typeof($scope.editEvent.notifications) == 'undefined'
+      $scope.editEvent.notifications = [] 
 
   # Update event
   $scope.updateEvent = ->
     $scope.editEvent.$update id : $scope.editEvent._id, uid : user_id, ((data) ->
+      
       # Success
-      socket.emit 'notify', $scope.editEvent
+      Notification.query uid : user_id, eid : data._id, ((notes) -> 
+        for note in notes # delete notifications
+          Notification.delete uid: user_id, eid : data._id, id : note._id
+      ), (err) ->
+      
+      console.log $scope.editEvent.notifications     
+      for note in $scope.editEvent.notifications # create new notifications
+        note._id = undefined
+        Notification.save uid : user_id, eid : data._id, note, ((notif_data) ->
+          # Notifications success
+          socket.emit 'notify:create', notif_data
+        ), (err) ->
+          # Notifications error
+
       $scope.events[$scope.editEventIndex] = $scope.editEvent
     ), (err) ->
       # Error 
@@ -70,20 +90,30 @@
       # Error
 
   # Create new notification
-  $scope.addNotification = (datetime) ->
+  $scope.addnewNotification = (datetime) ->
     notification = 
-      text : $scope.newEvent.header
       time : $scope.newEvent.time
     $scope.newEvent.notifications.push(notification)
 
+  # Create new notification in edit event
+  $scope.addeditNotification = (datetime) ->
+    notification = 
+      time : $scope.editEvent.time
+    $scope.editEvent.notifications.push(notification)
+
   # Remove notification
   $scope.removeNotification = ($index) ->
-    $scope.newEvent.notifications.splice($index,1)
+    # Check for undefined
+    unless typeof($scope.newEvent.notifications) == 'undefined' 
+      $scope.newEvent.notifications.splice($index,1)
+    else
+      unless typeof($scope.editEvent.notifications) == 'undefined'
+        $scope.editEvent.notifications.splice($index,1)
 
   # Get current data and time
   $scope.newDate = ->
     $scope.newEvent.time = new Date()
     $scope.newEvent.notifications = []
-    $scope.addNotification($scope.newEvent.time)
+    $scope.addnewNotification($scope.newEvent.time)
     $scope.month = $scope.newEvent.time.getMonth()
 ]    

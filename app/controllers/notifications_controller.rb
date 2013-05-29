@@ -5,10 +5,13 @@ class NotificationsController < ApplicationController
 
   def index
     @title = 'Notifications'
+    @user = User.find(params[:user_id])
+    @event = @user.events.find(params[:event_id])
+    @notifications = @event.notifications.all
 
     respond_to do |format|
       format.html
-      # format.json {render :json => @events}
+      format.json {render :json => @notifications}
     end 
 
   end
@@ -50,7 +53,7 @@ class NotificationsController < ApplicationController
 
   def destroy
     @user = User.find(params[:user_id])
-    @event = @user.find(params[:event_id])
+    @event = @user.events.find(params[:event_id])
     @notification = @event.notifications.find(params[:id])
     @notification.destroy
     
