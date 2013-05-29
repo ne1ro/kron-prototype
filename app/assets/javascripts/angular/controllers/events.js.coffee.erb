@@ -4,7 +4,10 @@
   path = window.location.pathname
   user_id = path.substr(7)
   
-  $scope.events = Event.query(uid : user_id)
+  $scope.events = Event.query uid : user_id, ((data) ->
+    # Success
+  ), (err) ->
+    # Error
   $scope.data = new Date()
   $scope.newEvent = new Event
   $scope.editEvent = new Event
@@ -30,29 +33,41 @@
         Notification.save uid : user_id, eid : data._id, notification, ((data) ->
           # Notifications success
           socket.emit 'notify:create', data
-          $scope.events.push(data)
         ), (err) ->
           # Notifications error
       
+      $scope.events.push(data)
       $scope.newEvent = new Event # reset scope`s new event
+      $scope.newDate()
+      $scope.newEvent.notifications = []
+      $scope.addNotification($scope.newEvent.time)
     ), (err) ->
       #error call-back 
 
   # Show event before edit
   $scope.showEvent = (event, $index) ->
-    $scope.editEvent = Event.get(id : event._id, uid : user_id)
-    $scope.editEventIndex = $index
+    $scope.editEvent = Event.get id : event._id, uid : user_id, ((data) ->
+      # Success
+      $scope.editEventIndex = $index
+    ), (err) ->
+      # Error
 
   # Update event
   $scope.updateEvent = ->
-    $scope.editEvent.$update(id : $scope.editEvent._id, uid : user_id)
-    socket.emit 'notify', $scope.editEvent
-    $scope.events[$scope.editEventIndex] = $scope.editEvent
+    $scope.editEvent.$update id : $scope.editEvent._id, uid : user_id, ((data) ->
+      # Success
+      socket.emit 'notify', $scope.editEvent
+      $scope.events[$scope.editEventIndex] = $scope.editEvent
+    ), (err) ->
+      # Error 
     
   # Destroy event
   $scope.deleteEvent = (event, $index) ->
-    Event.delete(uid : user_id, id : event._id)
-    $scope.events.splice($index,1)
+    Event.delete uid : user_id, id : event._id, ((data) ->
+      # Success
+      $scope.events.splice($index,1)
+    ), (err) ->
+      # Error
 
   # Create new notification
   $scope.addNotification = (datetime) ->
