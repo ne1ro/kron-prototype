@@ -16,7 +16,7 @@ class NotificationsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @event = @user.find(params[:event_id])
-    @notification = @event.find(params[:id])
+    @notification = @event.notifications.find(params[:id])
 
     respond_to do |format|
       format.html
@@ -27,7 +27,7 @@ class NotificationsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @event = @user.events.find(params[:event_id])
-    @notification = @event.create(params[:notification])
+    @notification = @event.notifications.create(params[:notification])
 
     respond_to do |format|
       format.html
@@ -39,7 +39,7 @@ class NotificationsController < ApplicationController
   def update
     @user = User.find(params[:user_id])
     @event = @user.find(params[:event_id])
-    @notification = @event.find(params[:id])
+    @notification = @event.notifications.find(params[:id])
     @notification.update_attributes(params[:event])
 
     respond_to do |format|
@@ -51,7 +51,7 @@ class NotificationsController < ApplicationController
   def destroy
     @user = User.find(params[:user_id])
     @event = @user.find(params[:event_id])
-    @notification = @event.find(params[:id])
+    @notification = @event.notifications.find(params[:id])
     @notification.destroy
     
     respond_to do |format|

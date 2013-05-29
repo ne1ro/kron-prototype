@@ -1,7 +1,9 @@
 # Events controller
-@EventCtrl = ["$scope", "$filter", "User", "Event", "Notification", "socket", "$location", ($scope, $filter, User, Event, Notification, socket, $location) ->
+@EventCtrl = ["$scope", "$filter", "User", "Event", "Notification", "socket", ($scope, $filter, User, Event, Notification, socket) ->
+  # Get users from path
   path = window.location.pathname
   user_id = path.substr(7)
+  
   $scope.events = Event.query(uid : user_id)
   $scope.data = new Date()
   $scope.newEvent = new Event
@@ -20,39 +22,50 @@
       audioElement.play()
     ), true
 
+  # Create new event and notifications
   $scope.createEvent = ->
-    event = Event.save(uid : user_id, $scope.newEvent)
-    console.log event
-    for notification in $scope.newEvent.notifications
-      Notification.save(uid : user_id, eid : event._id, notification)
+    Event.save uid : user_id, $scope.newEvent, ((data) ->
+      # Success callback
+      for notification in $scope.newEvent.notifications
+        Notification.save uid : user_id, eid : data._id, notification, ((data) ->
+          # Notifications success
+          socket.emit 'notify:create', data
+          $scope.events.push(data)
+        ), (err) ->
+          # Notifications error
+      
+      $scope.newEvent = new Event # reset scope`s new event
+    ), (err) ->
+      #error call-back 
 
-    socket.emit 'notify:create', event
-    $scope.events.push(event)
-    $scope.newEvent = new Event
-
+  # Show event before edit
   $scope.showEvent = (event, $index) ->
     $scope.editEvent = Event.get(id : event._id, uid : user_id)
     $scope.editEventIndex = $index
 
+  # Update event
   $scope.updateEvent = ->
     $scope.editEvent.$update(id : $scope.editEvent._id, uid : user_id)
     socket.emit 'notify', $scope.editEvent
     $scope.events[$scope.editEventIndex] = $scope.editEvent
     
+  # Destroy event
   $scope.deleteEvent = (event, $index) ->
     Event.delete(uid : user_id, id : event._id)
     $scope.events.splice($index,1)
 
+  # Create new notification
   $scope.addNotification = (datetime) ->
     notification = 
       text : $scope.newEvent.header
       time : $scope.newEvent.time
     $scope.newEvent.notifications.push(notification)
 
+  # Remove notification
   $scope.removeNotification = ($index) ->
     $scope.newEvent.notifications.splice($index,1)
 
-
+  # Get current data and time
   $scope.newDate = ->
     $scope.newEvent.time = new Date()
     $scope.newEvent.notifications = []
