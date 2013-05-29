@@ -29,14 +29,17 @@ h2 {
 }
 
 #content {
-  width : 62em;
+  width : 30.5em;
+  height : 100%;
   margin : 0 auto;
   box-shadow : none;
   padding: 0;
+  display: table!important;
 }
 
 #welcome {
-  margin-top : 10em;
+  display: table-cell!important;
+  vertical-align: middle;
 }
 
 .input_wrapper {
@@ -130,4 +133,9 @@ ul#footer li a{
 
 a:visited {
   color : #FFF!important;
+}
+
+h3 {
+  text-align: center;
+  color : @red;
 }

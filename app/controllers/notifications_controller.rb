@@ -1,4 +1,4 @@
-class NotificationController < ApplicationController
+class NotificationsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_user, except: [:index, :show]
   skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
@@ -26,7 +26,7 @@ class NotificationController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @event = @user.find(params[:event_id])
+    @event = @user.events.find(params[:event_id])
     @notification = @event.create(params[:notification])
 
     respond_to do |format|

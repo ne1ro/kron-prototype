@@ -1,11 +1,11 @@
 # Events controller
-@EventCtrl = ["$scope", "$filter", "Event", "User", "Notification", "socket", "$location", ($scope, $filter, Event, User, Notificaion, socket, $location) ->
+@EventCtrl = ["$scope", "$filter", "User", "Event", "Notification", "socket", "$location", ($scope, $filter, User, Event, Notification, socket, $location) ->
   path = window.location.pathname
   user_id = path.substr(7)
   $scope.events = Event.query(uid : user_id)
   $scope.data = new Date()
-  $scope.newEvent = {}
-  $scope.editEvent = {}
+  $scope.newEvent = new Event
+  $scope.editEvent = new Event
   
   # On message notify
   socket.on 'notify:send', (data) ->
@@ -22,9 +22,13 @@
 
   $scope.createEvent = ->
     event = Event.save(uid : user_id, $scope.newEvent)
+    console.log event
+    for notification in $scope.newEvent.notifications
+      Notification.save(uid : user_id, eid : event._id, notification)
+
     socket.emit 'notify:create', event
     $scope.events.push(event)
-    $scope.newEvent = {}
+    $scope.newEvent = new Event
 
   $scope.showEvent = (event, $index) ->
     $scope.editEvent = Event.get(id : event._id, uid : user_id)
