@@ -1,0 +1,10 @@
+#Groups Controller
+@GroupCtrl = ($scope, User) ->
+  # Get user from path
+  path = window.location.pathname
+  user_id = path.substr(7)
+  $scope.user = User.get(uid : user_id)
+
+  $scope.groups = [
+  ]
+    

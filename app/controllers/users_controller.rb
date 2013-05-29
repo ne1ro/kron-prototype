@@ -43,7 +43,7 @@ class UsersController < Devise::SessionsController
   end
   
   def index
-    @users = User.all.shuffle[0...10]
+    @users = User.all.shuffle[0...32]
     respond_to do |format|
       format.html {@title = 'Kron users'}
       format.json {render json: @users} 

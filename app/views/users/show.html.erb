@@ -71,15 +71,45 @@
                
       <%= render 'layouts/calendar' %>
 
-  <div id="socialside" ng-controller="GroupCtrl">
-    <div class="group" ng-repeat="group in groups">
-      <div id="header">
-        <p>{{group.name}}</p>
-        <div id="users" ng-repeat="user in group.users">
-          <a href="users/{{user}}" class="avatar"><%= image_tag('anon.png') %>
-          </a>
+  <% if @user == current_user %>
+    <div id="socialside">
+
+      <% if !@user.groups.empty? %>
+      <div class="group clearfix" ng-repeat="group in groups"  ng-controller="GroupCtrl">
+        <div id="header">
+          <p>{{group.name}}</p>
+          <div id="users" ng-repeat="user in group.users">
+            <a href="/users/{{user}}" class="avatar"><img src="{{'/assets/' + user.avatar}}" alt="{{user.nickname}}">
+            </a>
+          </div>  
+        </div>    
+      </div>
+      <% elsif !@user.following.empty?%>
+        <div class="group clearfix">
+          <div id="header">
+            <p>Following</p>
+            <div id="users" ng-repeat="follow in user.following" ng-controller="GroupCtrl">
+              <a href="/users/{{follow._id}}" class="avatar"><img src="{{'/assets/' + user.avatar}}" alt="{{user.nickname}}">
+              </a>
+            </div>  
+          </div>    
         </div>  
-      </div>    
+      <% else %>
+      <div class="group clearfix">
+        <div id="header"  ng-controller="UsersCtrl">
+          <%= link_to users_path do %>
+            <p>Find people to follow!</p>
+          <% end %>
+          <div id="users" ng-repeat="user in users">
+            <a href="/users/{{user._id}}" class="avatar small">
+              <img src="{{'/assets/' + user.avatar}}" alt="{{user.nickname}}">
+              <p>@{{user.nickname}}</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
     </div>
-  </div>
+  <% end %>
 </div>

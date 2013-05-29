@@ -18,6 +18,11 @@ app.directive "event", ->
     $(element).mouseleave ->
       $(element).children('.description').slideUp 500
 
+# Choose profile background
+app.directive "profileBg", ()->
+  (scope, element, attrs) ->
+    attrs.$observe "profileBg", (value) ->
+      element.css 'backgroundImage', 'url("' + value + '")'
 
 # Date filter
 app.directive "timeFilter", (dateFilter) ->

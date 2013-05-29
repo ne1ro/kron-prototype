@@ -43,9 +43,9 @@ class User
   field :birthday, :type => DateTime
   field :about, :type => String
   field :email, :type => String, :default => ""
-  field :avatar, :type => String
+  field :avatar, :type => String, :default => "anon.png"
   field :bg, :type => String
-  field :profile_bg, :type => String
+  field :profile_bg, :type => String, :default => "profilebg.png"
 
   # Embeds
   embeds_many :events
@@ -66,4 +66,18 @@ class User
   # Callbacks
   before_save :reset_authentication_token
 
+  # Followers and following
+  has_and_belongs_to_many :following, class_name: 'User', inverse_of: :followers, autosave: true
+  has_and_belongs_to_many :followers, class_name: 'User', inverse_of: :following
+  has_many :groups
+
+  # Follow user
+  def follow(user)
+    self.following << user unless self.id == user.id || self.following.include?(user)
+  end
+
+  # Unfollow user
+  def unfollow(user)
+    self.following.delete user
+  end
 end
