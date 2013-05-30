@@ -1,7 +1,7 @@
 class UsersController < Devise::SessionsController
   prepend_before_filter :require_no_authentication, :only => [:create ]
-  before_filter :check_auth, only: [:show, :index]
-  before_filter :ensure_params_exist, except: [:show, :destroy, :index]  
+  before_filter :check_auth, only: [:show, :index, :follow, :unfollow]
+  before_filter :ensure_params_exist, except: [:show, :destroy, :index, :follow, :unfollow]  
 
   def create
     build_resource
@@ -47,6 +47,24 @@ class UsersController < Devise::SessionsController
     respond_to do |format|
       format.html {@title = 'Kron users'}
       format.json {render json: @users} 
+    end
+  end
+
+  def follow
+    @user = User.find(params[:id])
+    current_user.follow(@user)
+    respond_to do |format|
+      format.html {redirect_to user_path(@user)}
+      format.json {render json: {message: ['You follow user']}, success: true, status: ok} 
+    end
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.unfollow(@user)
+    respond_to do |format|
+      format.html {redirect_to user_path(current_user)}
+      format.json {render json: {message: ['You unfollow user']}, success: true, status: ok} 
     end
   end
 

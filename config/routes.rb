@@ -34,12 +34,15 @@ Kron::Application.routes.draw do
   #   resources :products
   devise_scope :user do
     resources :users, :only => [:show, :index] do
+      get 'follow', on: :collection
+      get 'unfollow', on: :collection
       resources :events do 
         resources :notifications
       end
     end
   end
-
+  
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do

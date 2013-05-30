@@ -3,8 +3,20 @@
   # Get user from path
   path = window.location.pathname
   user_id = path.substr(7)
-  $scope.user = User.get(uid : user_id)
+  $scope.user = User.get(uid : user_id, ((data) ->
+    # Get followers and following
+    $scope.followers = []
+    $scope.following = []
 
-  $scope.groups = [
-  ]
+    for follower_id in data.follower_ids
+      follower = User.get uid : follower_id, ((follower_data) ->
+        $scope.followers.push follower_data
+      )
+
+    for following_id in data.following_ids
+      following = User.get uid : following_id, ((following_data) ->
+        $scope.following.push following_data
+        console.log $scope.following
+      )
+    ))
     
