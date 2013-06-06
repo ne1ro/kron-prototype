@@ -21,4 +21,5 @@ Gemfile.lock
 */node_modules/*
 *.tmp
 *.swap
+*,swp
 *.log
