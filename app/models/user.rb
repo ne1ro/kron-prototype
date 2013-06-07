@@ -56,7 +56,7 @@ class User
   validates :email, uniqueness: true, on: :update
 
   # Accessible
-  attr_accessible :nickname, :email, :password, :fullname, :about, :birthday, :avatar, :bg, :profile_bg, :remember_me
+  #attr_accessible :nickname, :email, :password, :fullname, :about, :birthday, :avatar, :bg, :profile_bg, :remember_me
 
   # Email is not required
   def email_required?

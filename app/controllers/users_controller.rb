@@ -4,7 +4,7 @@ class UsersController < Devise::SessionsController
   before_filter :ensure_params_exist, except: [:show, :destroy, :index, :follow, :unfollow]  
 
   def create
-    build_resource
+    self.resource = resource_class.new(sign_in_params)
     resource = User.find_for_database_authentication(nickname: params[:user][:nickname])
     resource[:remember_me] = params[:user][:remember_me]
     return invalid_login_attempt unless resource

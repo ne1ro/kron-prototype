@@ -1,23 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'rails', '4.0.0.rc1'
 
 group :development do
   gem 'guard-livereload'
   gem 'therubyracer'
+  gem 'faker'
 end
 
 group :production do
@@ -25,12 +13,12 @@ group :production do
 end
 
 gem 'jquery-rails'
-gem "mongoid"
+gem 'mongoid' , git: 'https://github.com/mongoid/mongoid.git'
 gem 'formtastic'
 gem 'less-rails'
 gem "font-awesome-rails"
-gem 'devise'
 gem 'bson_ext'
+gem 'devise', :github => 'plataformatec/devise', :branch => 'rails4'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
@@ -38,12 +26,10 @@ gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-vkontakte'
 gem 'puma'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'coffee-rails', '~> 4.0.0.rc1'
+gem 'uglifier', '>= 1.3.0'
+#gem 'activeresource', :require => 'active_resource'
 
 # Deploy with Capistrano
 gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
