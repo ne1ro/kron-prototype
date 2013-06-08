@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
-    user = User.new(params[:user])
+    user = build_resource(sign_up_params)
     if user.save
       if user.active_for_authentication?
         sign_up('user', user)

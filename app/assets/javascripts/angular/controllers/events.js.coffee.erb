@@ -32,7 +32,7 @@
       # Success callback
       data.notifications = []
       for notification in $scope.newEvent.notifications
-        Notification.save uid : user_id, eid : data._id, notification, ((notif_data) ->
+        Notification.save uid : user_id, eid : data._id.$oid, notification, ((notif_data) ->
           # Notifications success
           socket.emit 'notify:create', notif_data
           data.notifications.push notif_data
@@ -56,22 +56,22 @@
     
     # Check for undefined
     if typeof($scope.editEvent.notifications) == 'undefined'
-      $scope.editEvent.notifications = [] 
+      $scope.editEvent.notifications = []
 
   # Update event
   $scope.updateEvent = ->
-    $scope.editEvent.$update id : $scope.editEvent._id, uid : user_id, ((data) ->
+    $scope.editEvent.$update id : $scope.editEvent._id.$oid, uid : user_id, ((data) ->
       
       # Success
-      Notification.query uid : user_id, eid : data._id, ((notes) -> 
+      Notification.query uid : user_id, eid : data._id.$oid, ((notes) ->
         for note in notes # delete notifications
-          Notification.delete uid: user_id, eid : data._id, id : note._id
+          Notification.delete uid: user_id, eid : data._id.$oid, id : note._id.$oid
       ), (err) ->
       
-      console.log $scope.editEvent.notifications     
+      console.log $scope.editEvent.notifications
       for note in $scope.editEvent.notifications # create new notifications
         note._id = undefined
-        Notification.save uid : user_id, eid : data._id, note, ((notif_data) ->
+        Notification.save uid : user_id, eid : data._id.$oid, note, ((notif_data) ->
           # Notifications success
           socket.emit 'notify:create', notif_data
         ), (err) ->
@@ -83,7 +83,7 @@
     
   # Destroy event
   $scope.deleteEvent = (event, $index) ->
-    Event.delete uid : user_id, id : event._id, ((data) ->
+    Event.delete uid : user_id, id : event._id.$oid, ((data) ->
       # Success
       $scope.events.splice($index,1)
     ), (err) ->
@@ -91,20 +91,20 @@
 
   # Create new notification
   $scope.addnewNotification = (datetime) ->
-    notification = 
+    notification =
       time : $scope.newEvent.time
     $scope.newEvent.notifications.push(notification)
 
   # Create new notification in edit event
   $scope.addeditNotification = (datetime) ->
-    notification = 
+    notification =
       time : $scope.editEvent.time
     $scope.editEvent.notifications.push(notification)
 
   # Remove notification
   $scope.removeNotification = ($index) ->
     # Check for undefined
-    unless typeof($scope.newEvent.notifications) == 'undefined' 
+    unless typeof($scope.newEvent.notifications) == 'undefined'
       $scope.newEvent.notifications.splice($index,1)
     else
       unless typeof($scope.editEvent.notifications) == 'undefined'
@@ -116,4 +116,4 @@
     $scope.newEvent.notifications = []
     $scope.addnewNotification($scope.newEvent.time)
     $scope.month = $scope.newEvent.time.getMonth()
-]    
+]

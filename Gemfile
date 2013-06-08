@@ -3,9 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0.rc1'
 
 group :development do
-  gem 'guard-livereload'
   gem 'therubyracer'
-  gem 'faker'
 end
 
 group :production do
@@ -13,7 +11,7 @@ group :production do
 end
 
 gem 'jquery-rails'
-gem 'mongoid' , git: 'https://github.com/mongoid/mongoid.git'
+gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'formtastic'
 gem 'less-rails'
 gem "font-awesome-rails"

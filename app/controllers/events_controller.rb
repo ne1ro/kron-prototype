@@ -29,7 +29,7 @@ class EventsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @event = @user.events.create(params[:event])
+    @event = @user.events.create(event_params)
     respond_to do |format|
       format.html
       format.json {render :json => @event}
@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   def update
     @user = User.find(params[:user_id])
     @event = @user.events.find(params[:id])
-    @event.update_attributes(params[:event])
+    @event.update_attributes(event_params)
     respond_to do |format|
       format.json {head :no_content}
     end
@@ -68,5 +68,9 @@ private
     @user = User.find(params[:user_id])
     redirect_to root_path unless current_user == @user
   end
-
+  
+  # Strong parameters
+  def event_params
+    params.require(:event).permit(:time, :header, :description)
+  end
 end

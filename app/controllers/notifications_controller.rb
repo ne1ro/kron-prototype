@@ -30,7 +30,7 @@ class NotificationsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @event = @user.events.find(params[:event_id])
-    @notification = @event.notifications.create(params[:notification])
+    @notification = @event.notifications.create(notification_params)
 
     respond_to do |format|
       format.html
@@ -43,7 +43,7 @@ class NotificationsController < ApplicationController
     @user = User.find(params[:user_id])
     @event = @user.find(params[:event_id])
     @notification = @event.notifications.find(params[:id])
-    @notification.update_attributes(params[:event])
+    @notification.update_attributes(notification_params)
 
     respond_to do |format|
       format.html
@@ -69,5 +69,10 @@ class NotificationsController < ApplicationController
       @user = User.find(params[:user_id])
       redirect_to root_path unless current_user == @user
     end
+
+  # Strong parameters
+  def notification_params
+    params.require(:notification).permit(:text, :time, :marked)
+  end
 
 end
