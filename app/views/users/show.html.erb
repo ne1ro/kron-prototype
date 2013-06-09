@@ -48,19 +48,19 @@
         <h2>@<%= @user.nickname %></h2>
         <p><%= @user.about %></p>
       </div>
-      <div id="buttons">
+      <div id="buttons" ng-controller="GroupCtrl">
           <% if @user == current_user %>
             <%= link_to user_path(@user), class: 'profile-button' do %>
               <p>Edit</p>
               <p>Profile</p>
             <% end %>
             <% elsif !current_user.following_ids.include? @user.id%>
-              <%= link_to follow_users_path(id: @user), class: 'profile-button' do %>
-              <p>Follow</p>
-              <p>user</p>
-            <% end %>
+              <%= link_to follow_users_path(id: @user), class: 'profile-button', :'ng-click' => 'subscribe()' do %>
+                <p>Follow</p>
+                <p>user</p>
+              <% end %>
             <% else %>
-              <%= link_to unfollow_users_path(id: @user), class: 'profile-button' do %>
+              <%= link_to unfollow_users_path(id: @user), class: 'profile-button' , :'ng-click' => 'unsubscribe()' do %>
               <p>Unfollow</p>
               <p>user</p>
             <% end %>

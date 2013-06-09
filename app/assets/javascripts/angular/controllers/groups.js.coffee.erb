@@ -1,5 +1,5 @@
 #Groups Controller
-@GroupCtrl = ($scope, User) ->
+@GroupCtrl = ($scope, User, socket) ->
   # Get user from path
   path = window.location.pathname
   user_id = path.substr(7)
@@ -18,4 +18,11 @@
         $scope.following.push following_data
       )
   )
-    
+
+  # Subscribe to user
+  $scope.subscribe =  ->
+    socket.join(user_id+'_followers')
+
+  # Unsubscribe from user
+  $scope.unsubscribe =  ->
+    socket.leave(user_id+'_followers')

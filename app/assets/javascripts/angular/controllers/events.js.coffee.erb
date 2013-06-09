@@ -23,20 +23,9 @@
 
   # Get current user
   socket.on 'user:get_current', (data) ->
-    socket.emit 'user:show_current', user_id
-
-  # On message notify
-  socket.on 'notify:send', (data) ->
-    $scope.notify = data
-    $('#black').fadeIn 500
-    $('#notify').slideDown 500
-    audioElement = document.createElement("audio")
-    audioElement.setAttribute "src", "/notification.wav"
-    audioElement.setAttribute "autoplay", "autoplay"
-    $.get()
-    audioElement.addEventListener "load", (->
-      audioElement.play()
-    ), true
+    User.get uid: user_id, ((data) ->
+      socket.emit 'user:show_current', data
+    )
 
   # Create new event and notifications
   $scope.createEvent = ->
@@ -52,9 +41,9 @@
         ), (err) ->
           # Notifications error
       
-      $scope.events.push data
       $scope.newEvent = new Event # reset scope`s new event
-
+      socket.emit 'event:create', data # send created data to followers and users devices
+      
       # Create new notifications
       $scope.newDate()
       $scope.newEvent.notifications = []
@@ -89,6 +78,8 @@
           socket.emit 'notify:create', notif_data
         ), (err) ->
           # Notifications error
+
+      socket.emit 'event:update', data
     ), (err) ->
       # Error 
     
@@ -98,11 +89,34 @@
       # Delete every notification from event
       for note in event.notifications
         socket.emit 'notify:delete', note
-      $scope.events.splice($index,1)
     ), (err) ->
       # Error
+    socket.emit 'event:destroy', event._id.$oid
 
   # Create new notification
+  # Realtime events CRUD
+  # On create event
+  socket.on 'onEventCreated', (data) ->
+    unless typeof(data.user) == 'undefined'
+      User.get uid : data.user, ((user)->
+        data.user = user
+      )
+    $scope.events.push data
+
+  # On update event
+  socket.on 'onEventUpdated', (data) ->
+    unless typeof(data.user) == 'undefined'
+      User.get uid : data.user, ((user)->
+        data.user = user
+      )
+    for event, i in $scope.events
+      $scope.events[i] = data if event._id.$oid == data._id.$oid
+
+  # On destroy event
+  socket.on 'onEventDestroyed', (data) ->
+    for event, i in $scope.events
+      $scope.events.splice(i,1) if event._id.$oid == data
+
   $scope.addnewNotification = (datetime) ->
     notification =
       time : $scope.newEvent.time
