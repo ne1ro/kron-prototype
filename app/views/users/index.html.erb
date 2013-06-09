@@ -5,7 +5,7 @@
 <div class="clearfix" ng-controller="UsersCtrl">
   <div class="tile" profile-bg="{{'/assets/' + user.profile_bg}}" ng-repeat='user in users'>
     <h1>{{user.fullname}}</h1>
-    <a href="/users/{{user._id}}" class="avatar"><img src="{{'/assets/' + user.avatar}}" alt="{{user.nickname}}"></a>
+    <a href="/users/{{user._id.$oid}}" class="avatar"><img src="{{'/assets/' + user.avatar}}" alt="{{user.nickname}}"></a>
     <h2>@{{user.nickname}}</h2>
     <p>{{user.about}}</p>
   </div>

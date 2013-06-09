@@ -8,6 +8,15 @@
     # Success
   ), (err) ->
     # Error
+  $scope.user = User.get uid : user_id, ((data) ->
+    for following in data.following_ids
+      Event.query uid : following.$oid, ((data) ->
+        for event in data
+          event.user = User.get uid : following.$oid
+          $scope.events.push event
+      )
+  )
+
   $scope.data = new Date()
   $scope.newEvent = new Event
   $scope.editEvent = new Event

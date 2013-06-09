@@ -18,16 +18,20 @@
     <%= render 'layouts/eventbox', :action => 'create', :description => 'Create', :meth => 'New' %>
     <%= render 'layouts/eventbox', :action => 'update', :description => 'Update', :meth => 'Edit' %>
 
-    <div class="event" event ng-repeat="event in events | filter : searchquery " ng-class="{'last': $last}">
+    <div class="event" event ng-repeat="event in events | orderBy:'time' | filter : searchquery" ng-class="{'last': $last}">
     <p class="time">{{event.time | date:'H:mm'}}</p>
     <p class="header">{{event.header}}</p>
 
     <p class="description">{{event.description}}</p>
-      <% if @user == current_user %>
+      <div ng-show="!event.user">
         <i class="icon-edit" ng-click="showEvent(event, $index)"></i>
         <i class="icon-trash" ng-click="deleteEvent(event, $index)"></i>
-        <i class="icon-group"></i> 
-      <% end %>    
+        <i class="icon-group"></i>
+      </div>
+      <div ng-show="event.user">
+        <a ng-href="/users/{{event.user._id.$oid}}" class="avatar"><img ng-src="/assets/{{event.user.avatar}}" alt="{{event.user.nickname}}"></a>
+        <p id="following">{{'@' + event.user.nickname}}</p>
+      </div> 
     </div>
 </div>
 
@@ -84,7 +88,7 @@
         <div id="header">
           <p>{{group.name}}</p>
           <div id="users" ng-repeat="user in groups">
-            <a ng-href="/users/{{user}}" class="avatar"><img ng-src="{{'/assets/' + user.avatar}}" alt="{{user.nickname}}">
+            <a ng-href="/users/{{user}}" class="avatar"><img ng-src="/assets/{{user.avatar}}" alt="{{user.nickname}}">
             </a>
           </div>  
         </div>    
@@ -94,7 +98,7 @@
           <div id="header">
             <p>Following</p>
             <div id="users" ng-repeat="follow in following">
-              <a ng-href="/users/{{follow._id}}" class="avatar"><img ng-src="/assets/{{follow.avatar}}" alt="{{follow.nickname}}">
+              <a ng-href="/users/{{follow._id.$oid}}" class="avatar"><img ng-src="/assets/{{follow.avatar}}" alt="{{follow.nickname}}">
               </a>
             </div>  
           </div>    
@@ -106,8 +110,8 @@
             <p>Find people to follow!</p>
           <% end %>
           <div id="users" ng-repeat="user in users">
-            <a ng-href="/users/{{user._id}}" class="avatar small">
-              <img ng-src="{{'/assets/' + user.avatar}}" alt="{{user.nickname}}">
+            <a ng-href="/users/{{user._id.$oid}}" class="avatar small">
+              <img ng-src="/assets/{{user.avatar}}" alt="{{user.nickname}}">
               <p>@{{user.nickname}}</p>
             </a>
           </div>
