@@ -23,11 +23,9 @@
     <p class="header">{{event.header}}</p>
 
     <p class="description">{{event.description}}</p>
-      <div ng-show="!event.user">
-        <i class="icon-edit" ng-click="showEvent(event, $index)"></i>
-        <i class="icon-trash" ng-click="deleteEvent(event, $index)"></i>
-        <i class="icon-group"></i>
-      </div>
+        <i class="icon-edit" ng-click="showEvent(event, $index)" ng-show="!event.user"></i>
+        <i class="icon-trash" ng-click="deleteEvent(event, $index)" ng-show="!event.user"></i>
+        <i class="icon-group" ng-show="!event.user"></i>
       <div ng-show="event.user">
         <a ng-href="/users/{{event.user._id.$oid}}" class="avatar"><img ng-src="/assets/{{event.user.avatar}}" alt="{{event.user.nickname}}"></a>
         <p id="following">{{'@' + event.user.nickname}}</p>

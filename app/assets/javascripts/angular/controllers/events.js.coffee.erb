@@ -89,8 +89,6 @@
           socket.emit 'notify:create', notif_data
         ), (err) ->
           # Notifications error
-
-      $scope.events[$scope.editEventIndex] = $scope.editEvent
     ), (err) ->
       # Error 
     
@@ -99,7 +97,7 @@
     Event.delete uid : user_id, id : event._id.$oid, ((data) ->
       # Delete every notification from event
       for note in event.notifications
-        socket.emit 'notify:delete', note 
+        socket.emit 'notify:delete', note
       $scope.events.splice($index,1)
     ), (err) ->
       # Error
