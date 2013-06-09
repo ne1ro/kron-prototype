@@ -1,6 +1,5 @@
 class Notification
   include Mongoid::Document
-  include Mongoid::Timestamps
 
   # Callbacks
   before_save :check_text

@@ -11,7 +11,11 @@
   $scope.data = new Date()
   $scope.newEvent = new Event
   $scope.editEvent = new Event
-  
+
+  # Get current user
+  socket.on 'user:get_current', (data) ->
+    socket.emit 'user:show_current', user_id
+
   # On message notify
   socket.on 'notify:send', (data) ->
     $scope.notify = data
@@ -65,10 +69,10 @@
       # Success
       Notification.query uid : user_id, eid : data._id.$oid, ((notes) ->
         for note in notes # delete notifications
+          socket.emit 'notify:delete', note
           Notification.delete uid: user_id, eid : data._id.$oid, id : note._id.$oid
       ), (err) ->
       
-      console.log $scope.editEvent.notifications
       for note in $scope.editEvent.notifications # create new notifications
         note._id = undefined
         Notification.save uid : user_id, eid : data._id.$oid, note, ((notif_data) ->
@@ -84,7 +88,9 @@
   # Destroy event
   $scope.deleteEvent = (event, $index) ->
     Event.delete uid : user_id, id : event._id.$oid, ((data) ->
-      # Success
+      # Delete every notification from event
+      for note in event.notifications
+        socket.emit 'notify:delete', note 
       $scope.events.splice($index,1)
     ), (err) ->
       # Error
