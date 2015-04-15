@@ -17,11 +17,8 @@ Here is not yet another social network or time organization. Kron is combination
 * Timeline and calendar
 * Easy privacy policy
 * Following
-* Groups
-* Tags
 
-And here is the distinctive feature : *it absolutely realtime*.
-You dont need to reload browser anymore : everything what of you typing, searching, or waiting will always update in real time.
+## How to install
+Install Ruby, Bundler, then type `bundle install && rails s`
 
-
-Created by Aleksey 'neiro' Kuznetsov 
+Created by Alexey Kuznetsov © 2013
