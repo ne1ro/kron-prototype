@@ -1,5 +1,8 @@
 KRON
 ====
+
+![Screenshot](/screenshots/screen.png?raw=true "Optional Title")  
+
 Date and time-oriented social network
 -------------------------------------
 
@@ -19,6 +22,6 @@ Here is not yet another social network or time organization. Kron is combination
 * Following
 
 ## How to install
-Install Ruby, Bundler, then type `bundle install && rails s`
+Install Ruby, Bundler, then type `bundle install && rails s`  
 
 Created by Alexey Kuznetsov © 2013
